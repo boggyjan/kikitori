@@ -235,10 +235,6 @@ function speak (text, lv) {
       margin-bottom: 2rem;
       font-weight: bold;
     }
-
-    button {
-      margin: 0 0.4rem;
-    }
   }
 
   .answers {
@@ -247,10 +243,6 @@ function speak (text, lv) {
     .answer-head {
       margin-bottom: 2rem;
       font-weight: bold;
-    }
-
-    button {
-      margin: 0 0.4rem;
     }
   }
 

@@ -37,6 +37,7 @@ input[type=text] {
 }
 
 button {
+  margin: 0.4rem;
   padding: 0.8rem 2.2rem;
   background: var(--primary);
   border: 2px solid var(--primary);
