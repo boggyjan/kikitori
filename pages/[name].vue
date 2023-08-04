@@ -1,5 +1,5 @@
 <template>
-  <div class="_suuji">
+  <div class="_jikan">
     <div v-if="gameStatus !== 'playing'">
       <template v-if="gameStatus === 'end'">
         <h2>
@@ -59,15 +59,15 @@
       </template>
       <template v-else>
         <h2>
-          注意すべきところ
+          下記はこのテーマ「{{ title }}」に入れた単語
         </h2>
         <ul>
-          <li>「300」は「さんびゃく」</li>
-          <li>「600」は「ろっぴゃく」</li>
-          <li>「800」は「はっぴゃく」</li>
-          <li>「1000」は「せん」</li>
-          <li>「3000」は「さんぜん」</li>
-          <li>「8000」は「はっせん」</li>
+          <li
+            v-for="(item, idx) in questions"
+            :key="`custom_test_question_${idx}`"
+          >
+            {{ item }}
+          </li>
         </ul>
       </template>
 
@@ -144,9 +144,29 @@
 </template>
 
 <script setup>
+const route = useRoute()
+
+function getSavedData () {
+  if (route.params.name) {
+    const lsName = 'saved_tests'
+    const data = localStorage.getItem(lsName)
+    const tests = data ? JSON.parse(data) : []
+    const current = tests.find(item => item.title === route.params.name)
+    title.value = current.title
+    questions.value = current.questions
+  } else {
+    alert('Not Found')
+  }
+}
+onMounted(() => {
+  getSavedData()
+})
+
 const gameStatus = ref(null)
 const level = ref(1)
 const count = ref(1)
+const title = ref(null)
+const questions = ref([])
 // 題目
 const question = ref(null)
 // 答案選擇項目
@@ -206,7 +226,7 @@ function replay () {
 }
 
 function genText () {
-  return Math.floor(Math.random() * 1000 * Math.pow(10, level.value)).toString()
+  return questions.value[Math.floor(Math.random() * questions.value.length)]
 }
 
 function speak (text, lv) {
@@ -227,7 +247,7 @@ function speak (text, lv) {
 </script>
 
 <style lang="scss">
-._suuji {
+._jikan {
   .actions {
     text-align: center;
 

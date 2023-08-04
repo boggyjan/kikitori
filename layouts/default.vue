@@ -10,10 +10,14 @@
 <style lang="scss">
 :root {
   --primary: #df343a;
+  --textfield: #654;
 }
 
 html {
   background: #111;
+  background-image: linear-gradient(0deg, #111, #123);
+  background-position: top center;
+  background-repeat: no-repeat;
   color: #f1f1f1;
 }
 
@@ -23,6 +27,11 @@ body {
 
 a {
   color: currentColor;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: initial;
+  }
 }
 
 hr {
@@ -32,8 +41,15 @@ hr {
   background: #fff2;
 }
 
-input[type=text] {
+input, textarea {
   padding: 0.8rem 0.4rem;
+  outline: none;
+  border: 2px solid var(--textfield);
+  border-radius: 0.2rem;
+
+  &:focus {
+    border-color: #fff;
+  }
 }
 
 button {
@@ -43,10 +59,10 @@ button {
   border: 2px solid var(--primary);
   border-radius: 0.2rem;
   cursor: pointer;
-  transition: 0.4s;
+  transition: filter 0.3s, box-shadow 0.3s;
 
   &:hover {
-    filter: brightness(1.1);
+    filter: brightness(1.6);
     box-shadow: 0 0 10px var(--primary);
   }
 
@@ -58,6 +74,10 @@ button {
     &:hover {
       box-shadow: 0 0 10px var(--primary), 0 0 10px var(--primary) inset;
     }
+  }
+
+  &.small {
+    padding: 0.2rem 1rem;
   }
 }
 
