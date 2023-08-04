@@ -19,7 +19,7 @@
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="add">+</NuxtLink>
+          <NuxtLink to="add">+テスト</NuxtLink>
         </li>
       </ul>
     </nav>
@@ -37,20 +37,39 @@ function getSavedData () {
 
 onMounted(() => {
   getSavedData()
+  window.addEventListener('saved_test_updated', getSavedData)
 })
 </script>
 
 <style lang="scss">
 .site-header {
+  position: sticky;
+  top: 0;
   display: grid;
   grid-template-columns: auto 1fr;
   padding: 1rem 1.8rem;
   background: #ffffff09;
+  backdrop-filter: blur(20px);
   border-bottom: 1px solid #fff1;
 
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: initial;
+    }
+  }
+
   .main-menu {
+    padding-left: 3rem;
+
     ul, li {
-      display: inline;
+      display: inline-block;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
     }
 
     li {

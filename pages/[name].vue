@@ -1,5 +1,5 @@
 <template>
-  <div class="_jikan">
+  <div class="_custom">
     <div v-if="gameStatus !== 'playing'">
       <template v-if="gameStatus === 'end'">
         <h2>
@@ -61,14 +61,16 @@
         <h2>
           下記はこのテーマ「{{ title }}」に入れた単語
         </h2>
-        <ul>
-          <li
+        <div class="voc-list">
+          <a
             v-for="(item, idx) in questions"
             :key="`custom_test_question_${idx}`"
+            href="#"
+            @click.prevent="speak(item, 1)"
           >
             {{ item }}
-          </li>
-        </ul>
+          </a>
+        </div>
       </template>
 
       <hr>
@@ -247,13 +249,40 @@ function speak (text, lv) {
 </script>
 
 <style lang="scss">
-._jikan {
+._custom {
+  .voc-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+    @media (max-width: 991px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    a {
+      padding: 1rem;
+      border: 1px solid #fff2;
+      border-collapse: collapse;
+    }
+  }
+
   .actions {
     text-align: center;
 
     .action-head {
       margin-bottom: 2rem;
       font-weight: bold;
+    }
+
+    @media (max-width: 767px) {
+      button {
+        display: block;
+        width: 100%;
+        margin: 0.4rem 0;
+      }
     }
   }
 

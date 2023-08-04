@@ -10,6 +10,12 @@
           保存したテーマ
         </h3>
         <div
+          v-if="!tests.length"
+          class="alert"
+        >
+          データがありません
+        </div>
+        <div
           v-for="(test, idx) in tests"
           :key="`test_${idx}`"
           class="item"
@@ -19,27 +25,25 @@
           {{ test.title }}
           <button
             type="button"
-            class="small outline"
+            class="small outline secondary"
             @click.stop="remove(idx)"
           >
             削除
           </button>
         </div>
-
         <hr>
-
-        <div class="actions">
-          <button
-            v-if="selectedIdx !== null"
-            type="button"
-            @click="addNew()"
-          >
-            新しいのを作る
-          </button>
-        </div>
       </div>
-      <div class="content">
+      <div
+        ref="content"
+        class="content"
+      >
         <form @submit.prevent="save()">
+          <h3 v-if="selectedIdx !== null">
+            テーマ「{{ title }}」を編集
+          </h3>
+          <h3 v-else>
+            新しいテーマを編集
+          </h3>
           <div class="item">
             <label>テーマ</label>
             <input
@@ -55,6 +59,13 @@
             />
           </div>
           <div class="actions">
+            <button
+              v-if="selectedIdx !== null"
+              type="button"
+              @click="addNew()"
+            >
+              キャンセル
+            </button>
             <button>
               保存
             </button>
@@ -71,6 +82,7 @@ const selectedIdx = ref(null)
 const title = ref(null)
 const questions = ref(null)
 const lsName = 'saved_tests'
+const content = ref(null) // same as vue2 this.$refs.content
 
 function getSavedData () {
   const data = localStorage.getItem(lsName)
@@ -79,12 +91,15 @@ function getSavedData () {
 
 function setSavedData () {
   localStorage.setItem(lsName, JSON.stringify(tests.value))
+  window.dispatchEvent(new Event('saved_test_updated'))
 }
 
 function setSelected (i) {
   selectedIdx.value = i
   title.value = tests.value[i].title
   questions.value = tests.value[i].questions.join('\r')
+  scroll = window.scrollY + content.value.getBoundingClientRect().y - 100
+  window.scrollTo(0, scroll)
 }
 
 function addNew () {
@@ -131,10 +146,11 @@ onMounted(() => {
 ._add {
   .grid {
     display: grid;
-    grid-gap: 2rem;
+    grid-gap: 4rem;
     grid-template-columns: 200px 1fr;
 
     @media (max-width: 575px) {
+      grid-gap: 0;
       grid-template-columns: 1fr;
     }
 
@@ -165,14 +181,8 @@ onMounted(() => {
         margin-bottom: 1rem;
       }
 
-      input,
       textarea {
-        display: block;
-        width: 100%;
-      }
-
-      textarea {
-        height: 200px;
+        height: 10rem;
       }
 
       .actions {

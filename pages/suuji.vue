@@ -235,6 +235,14 @@ function speak (text, lv) {
       margin-bottom: 2rem;
       font-weight: bold;
     }
+
+    @media (max-width: 767px) {
+      button {
+        display: block;
+        width: 100%;
+        margin: 0.4rem 0;
+      }
+    }
   }
 
   .answers {
