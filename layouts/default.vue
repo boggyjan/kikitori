@@ -46,6 +46,7 @@ input, textarea {
   outline: none;
   border: 2px solid var(--textfield);
   border-radius: 0.2rem;
+  font-size: 16px;
 
   &:focus {
     border-color: #fff;
@@ -58,6 +59,7 @@ button {
   background: var(--primary);
   border: 2px solid var(--primary);
   border-radius: 0.2rem;
+  color: currentColor;
   cursor: pointer;
   transition: filter 0.3s, box-shadow 0.3s;
 
