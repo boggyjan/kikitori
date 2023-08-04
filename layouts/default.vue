@@ -23,6 +23,7 @@ html {
   background-repeat: no-repeat;
   color: #f1f1f1;
   font-size: 16px;
+  font-family: sans-serif;
 }
 
 body {
