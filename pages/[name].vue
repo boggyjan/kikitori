@@ -3,7 +3,7 @@
     <div v-if="gameStatus !== 'playing'">
       <template v-if="gameStatus === 'end'">
         <h2>
-          テスト結果
+          練習結果
         </h2>
         <table>
           <thead>
@@ -147,17 +147,35 @@
 
 <script setup>
 const route = useRoute()
+const router = useRouter()
+
+function backToHome () {
+  alert('Not Found')
+  router.push('/')
+}
 
 function getSavedData () {
   if (route.params.name) {
     const lsName = 'saved_tests'
     const data = localStorage.getItem(lsName)
+
+    if (!data) {
+      backToHome()
+      return
+    }
+
     const tests = data ? JSON.parse(data) : []
     const current = tests.find(item => item.title === route.params.name)
+
+    if (!current) {
+      backToHome()
+      return
+    }
+
     title.value = current.title
     questions.value = current.questions
   } else {
-    alert('Not Found')
+    backToHome()
   }
 }
 onMounted(() => {
@@ -203,7 +221,7 @@ function next () {
     })
   }
 
-  if (count.value >= maxQuestionCount) {
+  if (count.value >= maxQuestionCount + (level.value - 1) * 2) {
     gameStatus.value = 'end'
   } else {
     count.value++

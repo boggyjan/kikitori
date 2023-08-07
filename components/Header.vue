@@ -19,7 +19,7 @@
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="add">+テスト</NuxtLink>
+          <NuxtLink to="add">+</NuxtLink>
         </li>
       </ul>
     </nav>

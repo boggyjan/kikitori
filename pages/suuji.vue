@@ -3,7 +3,7 @@
     <div v-if="gameStatus !== 'playing'">
       <template v-if="gameStatus === 'end'">
         <h2>
-          テスト結果
+          練習結果
         </h2>
         <table>
           <thead>
@@ -181,7 +181,7 @@ function next () {
     })
   }
 
-  if (count.value >= maxQuestionCount) {
+  if (count.value >= maxQuestionCount + (level.value - 1) * 2) {
     gameStatus.value = 'end'
   } else {
     count.value++
@@ -190,9 +190,9 @@ function next () {
 
     const newAnswers = []
     newAnswers.push(question.value)
-    newAnswers.push(genText())
-    newAnswers.push(genText())
-    newAnswers.push(genText())
+    newAnswers.push(genText(question.value))
+    newAnswers.push(genText(question.value))
+    newAnswers.push(genText(question.value))
     newAnswers.sort(() => Math.random() - 0.5)
 
     answers.value = newAnswers
@@ -205,8 +205,31 @@ function replay () {
   speak(question.value, level.value)
 }
 
-function genText () {
-  return Math.floor(Math.random() * 1000 * Math.pow(10, level.value)).toString()
+function getRandomNumBut (but) {
+  let randomNum = Math.floor(Math.random() * 10)
+  while (randomNum === but) {
+    randomNum = Math.floor(Math.random() * 10)
+  }
+
+  return randomNum
+}
+
+function genText (near) {
+  if (near) {
+    const arr = near.split('')
+    let diff = false
+
+    arr.forEach((item, idx) => {
+      // 最後一碼且還沒被改過 (idx === arr.length - 1 && !diff) 時，一定要改
+      if (Math.random() > 0.5 || (idx === arr.length - 1 && !diff)) {
+        arr[idx] = getRandomNumBut(arr[idx])
+        diff = true
+      }
+    })
+    return arr.join('')
+  } else {
+    return Math.floor(Math.random() * 1000 * Math.pow(10, level.value)).toString()
+  }
 }
 
 function speak (text, lv) {

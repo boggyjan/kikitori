@@ -1,7 +1,7 @@
 <template>
   <div class="_add">
     <h2>
-      新しいテストを作ろう！
+      新しい練習を作ろう！
     </h2>
     <hr>
     <div class="grid">
@@ -110,7 +110,8 @@ function addNew () {
 
 function save () {
   const saveTitle = title.value.replace(/^\s+|\s+$/g, '')
-  const saveQuestions = questions.value.split(/\r|\n/g)
+  // 用換行分隔，濾掉空的
+  const saveQuestions = questions.value.split(/\r|\n/g).filter(item => !!item)
   saveQuestions.forEach((item, idx) => {
     saveQuestions[idx] = saveQuestions[idx].replace(/^\s+|\s+$/g, '')
   })

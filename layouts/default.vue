@@ -7,6 +7,18 @@
   </div>
 </template>
 
+<script setup>
+const lsName = 'saved_tests'
+
+if (!process.server) {
+  if (!localStorage.getItem(lsName)) {
+    console.log('yoyoyyo')
+    const sampleData = JSON.stringify([{"title":"家族","questions":["祖父","曽祖父","祖母","曽祖母","父","母","兄","姉","弟","妹","夫","妻","息子","娘","叔母さん","叔父さん"]},{"title":"時刻","questions":["今年","来年","再来年","去年","昨年","前年","今月","来月","再来月","先月","先先月","今週","来週","再来週","先週","先先週","今日","あした","あす","あさって","しあさって","昨日","一昨日","先一昨日"]},])
+    localStorage.setItem(lsName, sampleData)
+  }
+}
+</script>
+
 <style lang="scss">
 :root {
   --primary: #df343a;
@@ -71,6 +83,11 @@ button {
   &:hover {
     filter: brightness(1.6);
     box-shadow: 0 0 10px var(--primary);
+  }
+
+  &:disabled {
+    pointer-events: none;
+    filter: grayscale(40%);
   }
 
   &.secondary {
