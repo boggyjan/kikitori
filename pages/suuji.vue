@@ -14,7 +14,10 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(q, idx) in questionHistory">
+            <tr
+              v-for="(q, idx) in questionHistory"
+              :key="`question_history_${idx}`"
+            >
               <td>
                 <a
                   href="#"
@@ -157,7 +160,7 @@ const answer = ref(null)
 const questionHistory = ref([])
 const maxQuestionCount = 6
 
-const rightPercent = computed(() => Math.floor(questionHistory.value.filter(q => q.question == q.answer).length / questionHistory.value.length * 100))
+const rightPercent = computed(() => Math.floor(questionHistory.value.filter(q => q.question === q.answer).length / questionHistory.value.length * 100))
 
 function start (lv) {
   count.value = 0
@@ -235,10 +238,13 @@ function genText (near) {
 function speak (text, lv) {
   const utterance = new SpeechSynthesisUtterance(text)
   // 0.1~1 適合 // 0.1-10 max
-  const rate = lv === 1 ? 0.7
-    : lv === 2 ? Math.random() * 0.25 + 0.8
-    : lv === 3 ? Math.random() * 0.5 + 1
-    : 0.1
+  const rate = lv === 1
+    ? 0.7
+    : lv === 2
+      ? Math.random() * 0.25 + 0.8
+      : lv === 3
+        ? Math.random() * 0.5 + 1
+        : 0.1
   // 0~1.5 適合// 0~2 max
   const pitch = Math.random() * 1.5
   utterance.lang = 'ja-JP'

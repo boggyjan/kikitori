@@ -10,6 +10,9 @@ module.exports = {
   },
   plugins: [],
   rules: {
-    'no-undef': 'off'
+    'no-undef': 'off',
+    'vue/multi-word-component-names': ['error', {
+      ignores: ['default', 'index', 'add', '[name]', 'jikan', 'suuji', 'Header']
+    }]
   }
 }

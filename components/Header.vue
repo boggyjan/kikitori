@@ -1,14 +1,20 @@
 <template>
   <div class="site-header">
-    <NuxtLink to="/">聞き取りゲーム</NuxtLink>
+    <NuxtLink to="/">
+      聞き取りゲーム
+    </NuxtLink>
 
     <nav class="main-menu">
       <ul>
         <li>
-          <NuxtLink to="jikan">時間</NuxtLink>
+          <NuxtLink to="jikan">
+            時間
+          </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="suuji">数字</NuxtLink>
+          <NuxtLink to="suuji">
+            数字
+          </NuxtLink>
         </li>
         <li
           v-for="(test, idx) in tests"
@@ -19,7 +25,9 @@
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="add">+</NuxtLink>
+          <NuxtLink to="add">
+            +
+          </NuxtLink>
         </li>
       </ul>
     </nav>

@@ -98,7 +98,7 @@ function setSelected (i) {
   selectedIdx.value = i
   title.value = tests.value[i].title
   questions.value = tests.value[i].questions.join('\r')
-  scroll = window.scrollY + content.value.getBoundingClientRect().y - 100
+  const scroll = window.scrollY + content.value.getBoundingClientRect().y - 100
   window.scrollTo(0, scroll)
 }
 
