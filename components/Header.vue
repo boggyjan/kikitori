@@ -7,12 +7,12 @@
     <nav class="main-menu">
       <ul>
         <li>
-          <NuxtLink to="jikan">
+          <NuxtLink to="/jikan">
             時間
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="suuji">
+          <NuxtLink to="/suuji">
             数字
           </NuxtLink>
         </li>
@@ -20,12 +20,12 @@
           v-for="(test, idx) in tests"
           :key="`nav_test_${idx}`"
         >
-          <NuxtLink :to="test.title">
+          <NuxtLink :to="'/' + test.title">
             {{ test.title }}
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="add">
+          <NuxtLink to="/add">
             +
           </NuxtLink>
         </li>
