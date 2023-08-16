@@ -62,27 +62,6 @@ if (!process.server) {
     findWrongData2.questions = ["祖父","そう祖父","祖母","そう祖母","父","母","兄","姉","弟","妹","夫","妻","息子","娘","叔母さん","叔父さん"]
     localStorage.setItem(lsName, JSON.stringify(tests))
   }
-
-  const title = '聞き取りゲーム'
-  const desc = 'Let\'s 聞き取りましょう！'
-  const url = 'https://kikitori.boggy.tw'
-  const image = 'https://kikitori.boggy.tw/images/share.jpg'
-
-  useHead({
-    meta: [
-      { name: 'description', content: desc },
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:title', content: title },
-      { name: 'twitter:description', desc },
-      { name: 'twitter:image', content: image },
-      { name: 'og:type', content: 'website' },
-      { name: 'og:title', content: title },
-      { name: 'og:description', content: desc },
-      { name: 'og:image', content: image },
-      { name: 'og:url', content: url },
-      { name: 'og:site_name', content: 'iDrip' }
-    ]
-  })
 }
 </script>
 
