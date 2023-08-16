@@ -29,7 +29,7 @@ const _sfc_main = {
       }
       _push(`<div class="item"><label>\u30C6\u30FC\u30DE</label><input${ssrRenderAttr("value", unref(title))} required></div><div class="item"><label>\u5358\u8A9E\uFF08\u6539\u884C\u3067\u5358\u8A9E\u3092\u533A\u5207\u3063\u3066\u304F\u3060\u3055\u3044\uFF09</label><textarea required>${ssrInterpolate(unref(questions))}</textarea></div><div class="actions">`);
       if (unref(selectedIdx) !== null) {
-        _push(`<button type="button"> \u30AD\u30E3\u30F3\u30BB\u30EB </button>`);
+        _push(`<button type="button" class="outline"> \u65B0\u3057\u3044\u306E\u3092\u4F5C\u308B </button>`);
       } else {
         _push(`<!---->`);
       }
@@ -45,4 +45,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=add-7b53e537.mjs.map
+//# sourceMappingURL=add-f1ee28a4.mjs.map
