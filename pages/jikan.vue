@@ -191,13 +191,21 @@ function next () {
   } else {
     count.value++
 
-    question.value = genText()
+    const time = genTime()
+
+    question.value = time
 
     const newAnswers = []
     newAnswers.push(question.value)
-    newAnswers.push(genText(question.value))
-    newAnswers.push(genText(question.value))
-    newAnswers.push(genText(question.value))
+
+    for (let i = 0; i < 3; i++) {
+      const date = time.split(/時|分/g).map(item => parseInt(item))
+      const changeHour = Math.random() > 0.7
+      const hours = changeHour ? randomBut(24, date[0]) : date[0]
+      const minutes = changeHour ? date[1] : randomBut(60, date[1])
+      newAnswers.push(hours + '時' + minutes + '分')
+    }
+
     newAnswers.sort(() => Math.random() - 0.5)
 
     answers.value = newAnswers
@@ -206,65 +214,24 @@ function next () {
   }
 }
 
+function randomBut (r, b) {
+  let num = b
+
+  while (num === b) {
+    num = Math.floor(Math.random() * r)
+  }
+
+  return num
+}
+
 function replay () {
   speak(question.value, level.value)
 }
 
-function getTrickNum (by, isDiff) {
-  const trickNums = {
-    0: [0, 2, 5],
-    1: [1, 7, 8],
-    2: [2, 4, 6],
-    3: [3, 7, 8],
-    4: [1, 4, 7],
-    5: [5, 6, 9],
-    6: [5, 6, 9],
-    7: [1, 7, 8],
-    8: [1, 7, 8],
-    9: [5, 6, 9]
-  }
-
-  const trickHs = trickNums[by]
-  let trickH = trickHs[Math.floor(Math.random() * trickHs.length)]
-
-  if (isDiff) {
-    while (trickH === by) {
-      trickH = trickHs[Math.floor(Math.random() * trickHs.length)]
-    }
-  }
-
-  return trickH
-}
-
-function getTrickHours (...hours) {
-  const h = hours[hours.length > 1 ? 1 : 0]
-
-  hours[hours.length > 1 ? 1 : 0] = getTrickNum(h)
-
-  while (parseInt(hours.join('')) > 23) {
-    hours[hours.length > 1 ? 1 : 0] = getTrickNum(h)
-  }
-
-  return hours.join('')
-}
-
-function getTrickMinutes (...minutes) {
-  const m = minutes[minutes.length > 1 ? 1 : 0]
-  minutes[minutes.length > 1 ? 1 : 0] = getTrickNum(m, true)
-  return minutes.join('')
-}
-
-function genText (near) {
-  if (near) {
-    const date = near.split(/時|分/g)
-    const hours = getTrickHours(...date[0].split('').map(i => parseInt(i)))
-    const minutes = getTrickMinutes(...date[1].split('').map(i => parseInt(i)))
-    return hours + '時' + minutes + '分'
-  } else {
-    const hours = Math.floor(Math.random() * 24)
-    const minutes = Math.floor(Math.random() * 60)
-    return hours + '時' + minutes + '分'
-  }
+function genTime () {
+  const hours = Math.floor(Math.random() * 24)
+  const minutes = Math.floor(Math.random() * 60)
+  return hours + '時' + minutes + '分'
 }
 
 function speak (text, lv) {
