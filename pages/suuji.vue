@@ -189,13 +189,16 @@ function next () {
   } else {
     count.value++
 
-    question.value = genText()
+    const num = genNumber()
+    question.value = num.toString()
 
     const newAnswers = []
-    newAnswers.push(question.value)
-    newAnswers.push(genText(question.value))
-    newAnswers.push(genText(question.value))
-    newAnswers.push(genText(question.value))
+    newAnswers.push(num.toString())
+
+    for (let i = 0; i < 3; i++) {
+      const diff = Math.floor(num / 10 * (Math.random() - 0.5))
+      newAnswers.push(num + diff)
+    }
     newAnswers.sort(() => Math.random() - 0.5)
 
     answers.value = newAnswers
@@ -208,31 +211,8 @@ function replay () {
   speak(question.value, level.value)
 }
 
-function getRandomNumBut (but) {
-  let randomNum = Math.floor(Math.random() * 10)
-  while (randomNum === but) {
-    randomNum = Math.floor(Math.random() * 10)
-  }
-
-  return randomNum
-}
-
-function genText (near) {
-  if (near) {
-    const arr = near.split('')
-    let diff = false
-
-    arr.forEach((item, idx) => {
-      // 最後一碼且還沒被改過 (idx === arr.length - 1 && !diff) 時，一定要改
-      if (Math.random() > 0.5 || (idx === arr.length - 1 && !diff)) {
-        arr[idx] = getRandomNumBut(arr[idx])
-        diff = true
-      }
-    })
-    return arr.join('')
-  } else {
-    return Math.floor(Math.random() * 1000 * Math.pow(10, level.value)).toString()
-  }
+function genNumber () {
+  return Math.floor(Math.random() * 1000 * Math.pow(10, level.value))
 }
 
 function speak (text, lv) {

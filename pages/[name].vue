@@ -151,9 +151,27 @@
 <script setup>
 const route = useRoute()
 const router = useRouter()
+const gameStatus = ref(null)
+const level = ref(1)
+const count = ref(1)
+const title = ref(null)
+const questions = ref([])
+// 題目
+const question = ref(null)
+// 答案選擇項目
+const answers = ref([])
+// 使用者選擇的答案
+const answer = ref(null)
+// 紀錄每一題的作答
+const questionHistory = ref([])
+const maxQuestionCount = 6
 
-function backToHome () {
-  alert('Not Found')
+const rightPercent = computed(() => Math.floor(questionHistory.value.filter(q => q.question === q.answer).length / questionHistory.value.length * 100))
+
+function backToHome (showMsg = true) {
+  if (showMsg) {
+    alert('Not Found')
+  }
   router.push('/')
 }
 
@@ -177,30 +195,15 @@ function getSavedData () {
 
     title.value = current.title
     questions.value = current.questions
+
+    if (questions.value.length < 4) {
+      alert('少なくとも4つ異なる単語が必要です。')
+      backToHome(false)
+    }
   } else {
     backToHome()
   }
 }
-onMounted(() => {
-  getSavedData()
-})
-
-const gameStatus = ref(null)
-const level = ref(1)
-const count = ref(1)
-const title = ref(null)
-const questions = ref([])
-// 題目
-const question = ref(null)
-// 答案選擇項目
-const answers = ref([])
-// 使用者選擇的答案
-const answer = ref(null)
-// 紀錄每一題的作答
-const questionHistory = ref([])
-const maxQuestionCount = 6
-
-const rightPercent = computed(() => Math.floor(questionHistory.value.filter(q => q.question === q.answer).length / questionHistory.value.length * 100))
 
 function start (lv) {
   count.value = 0
@@ -229,16 +232,13 @@ function next () {
   } else {
     count.value++
 
-    question.value = genText()
+    const newAnswers = JSON.parse(JSON.stringify(questions.value))
+      .sort(() => .5 - Math.random())
+      .slice(0, 4)
 
-    const newAnswers = []
-    newAnswers.push(question.value)
-    newAnswers.push(genText())
-    newAnswers.push(genText())
-    newAnswers.push(genText())
-    newAnswers.sort(() => Math.random() - 0.5)
+    question.value = newAnswers[0]
 
-    answers.value = newAnswers
+    answers.value = newAnswers.sort(() => .5 - Math.random())
     answer.value = null
     speak(question.value, level.value)
   }
@@ -270,6 +270,10 @@ function speak (text, lv) {
   utterance.volume = 1
   speechSynthesis.speak(utterance)
 }
+
+onMounted(() => {
+  getSavedData()
+})
 </script>
 
 <style lang="scss">

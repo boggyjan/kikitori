@@ -110,8 +110,20 @@ function addNew () {
 
 function save () {
   const saveTitle = title.value.replace(/^\s+|\s+$/g, '')
+
+  if (tests.value.find(item => item.title === saveTitle)) {
+    alert('保存に失敗しました。すでに同じテーマがあります。')
+    return
+  }
+
   // 用換行分隔，濾掉空的
-  const saveQuestions = questions.value.split(/\r|\n/g).filter(item => !!item)
+  const saveQuestions = [...new Set(questions.value.split(/\r|\n/g).filter(item => !!item))]
+
+  if (saveQuestions.length < 4) {
+    alert('保存に失敗しました。少なくとも4つ異なる単語が必要です。')
+    return
+  }
+
   saveQuestions.forEach((item, idx) => {
     saveQuestions[idx] = saveQuestions[idx].replace(/^\s+|\s+$/g, '')
   })
@@ -126,6 +138,7 @@ function save () {
       title: saveTitle,
       questions: saveQuestions
     })
+    selectedIdx.value = tests.value.length - 1
   }
 
   setSavedData()
