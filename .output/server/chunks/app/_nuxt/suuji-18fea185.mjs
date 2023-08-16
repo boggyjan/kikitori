@@ -27,12 +27,12 @@ import 'node:url';
 import 'pathe';
 import 'http-graceful-shutdown';
 
-const title = "\u6642\u523B - \u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0";
-const desc = "\u6642\u523B\u306B\u95A2\u3059\u308B\u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0\u3092\u3084\u308A\u307E\u3057\u3087\u3046";
+const title = "\u6570\u5B57 - \u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0";
+const desc = "\u6570\u5B57\u306B\u95A2\u3059\u308B\u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0\u3092\u3084\u308A\u307E\u3057\u3087\u3046";
 const url = "https://kikitori.boggy.tw";
 const image = "https://kikitori.boggy.tw/images/share.jpg";
 const _sfc_main = {
-  __name: "jikan",
+  __name: "suuji",
   __ssrInlineRender: true,
   setup(__props) {
     const gameStatus = ref(null);
@@ -61,11 +61,11 @@ const _sfc_main = {
       ]
     });
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "_jikan" }, _attrs))}>`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "_suuji" }, _attrs))}>`);
       if (unref(gameStatus) !== "playing") {
         _push(`<div>`);
         if (unref(gameStatus) === "end") {
-          _push(`<!--[--><h2> \u6642\u523B \u30EC\u30D9\u30EB${ssrInterpolate(unref(level))}\u306E \u7DF4\u7FD2\u7D50\u679C </h2><table><thead><tr><th>\u554F\u984C</th><th>\u7B54\u3048</th><th>\u7D50\u679C</th></tr></thead><tbody><!--[-->`);
+          _push(`<!--[--><h2> \u6570\u5B57 \u30EC\u30D9\u30EB${ssrInterpolate(unref(level))}\u306E \u7DF4\u7FD2\u7D50\u679C </h2><table><thead><tr><th>\u554F\u984C</th><th>\u7B54\u3048</th><th>\u7D50\u679C</th></tr></thead><tbody><!--[-->`);
           ssrRenderList(unref(questionHistory), (q, idx) => {
             _push(`<tr><td><a href="#">${ssrInterpolate(q.question)}</a></td><td><a href="#">${ssrInterpolate(q.answer)}</a></td><td>${ssrInterpolate(q.question === q.answer ? "\u2B55\uFE0F" : "\u274C")}</td></tr>`);
           });
@@ -77,13 +77,13 @@ const _sfc_main = {
           } else if (unref(rightPercent) > 70) {
             _push(`<!--[--> \u3088\u304F\u3067\u304D\u305F\u306D\uFF01 <!--]-->`);
           } else if (unref(rightPercent) > 60) {
-            _push(`<!--[--> \u305F\u304F\u3055\u3093\u805E\u3051\u307E\u3059\u306D\uFF01 <!--]-->`);
+            _push(`<!--[--> \u3060\u3093\u3060\u3093\u3067\u304D\u305F\u306D\uFF01 <!--]-->`);
           } else {
-            _push(`<!--[--> \u3082\u3063\u3068\u9811\u5F35\u3063\u3066\u304F\u3060\u3055\u3044\u3002 <!--]-->`);
+            _push(`<!--[--> \u3082\u3063\u3068\u9811\u5F35\u3063\u3066\u306D\u3002 <!--]-->`);
           }
           _push(`</div><!--]-->`);
         } else {
-          _push(`<!--[--><h2> \u6CE8\u610F\u3059\u3079\u304D\u3068\u3053\u308D </h2><ul><li>\u300C1\u5206\u300D\u306F\u300C\u3044\u3063\u3077\u3093\u300D</li><li>\u300C3\u5206\u300D\u306F\u300C\u3055\u3093\u3077\u3093\u3001\u3055\u3093\u3075\u3093\u300D</li><li>\u300C4\u5206\u300D\u306F\u300C\u3088\u3093\u3077\u3093\u3001\u3088\u3093\u3075\u3093\u300D</li><li>\u300C4\u6642\u300D\u306F\u300C\u3088\u3058\u300D</li><li>\u300C6\u5206\u300D\u306F\u300C\u308D\u3063\u3077\u3093\u300D</li><li>\u300C7\u5206\u300D\u306F\u300C\u306A\u306A\u3075\u3093\u300D</li><li>\u300C8\u5206\u300D\u306F\u300C\u306F\u3063\u3077\u3093\u3001\u306F\u3061\u3075\u3093\u300D</li><li>\u300C10\u5206\u300D\u306F\u300C\u3058\u3085\u3063\u3077\u3093\u300D</li></ul><!--]-->`);
+          _push(`<!--[--><h2> \u6CE8\u610F\u3059\u3079\u304D\u3068\u3053\u308D </h2><ul><li>\u300C300\u300D\u306F\u300C\u3055\u3093\u3073\u3083\u304F\u300D</li><li>\u300C600\u300D\u306F\u300C\u308D\u3063\u3074\u3083\u304F\u300D</li><li>\u300C800\u300D\u306F\u300C\u306F\u3063\u3074\u3083\u304F\u300D</li><li>\u300C1000\u300D\u306F\u300C\u305B\u3093\u300D</li><li>\u300C3000\u300D\u306F\u300C\u3055\u3093\u305C\u3093\u300D</li><li>\u300C8000\u300D\u306F\u300C\u306F\u3063\u305B\u3093\u300D</li></ul><!--]-->`);
         }
         _push(`<hr><div class="actions"><div class="action-head">`);
         if (unref(gameStatus) === null) {
@@ -108,9 +108,9 @@ const _sfc_main = {
 const _sfc_setup = _sfc_main.setup;
 _sfc_main.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/jikan.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/suuji.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=jikan-4ad8372e.mjs.map
+//# sourceMappingURL=suuji-18fea185.mjs.map

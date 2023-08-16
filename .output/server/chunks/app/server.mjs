@@ -320,7 +320,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/_name_-5924b0ec.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/_name_-74bc2b56.mjs').then((m) => m.default || m)
   },
   {
     name: "add",
@@ -336,7 +336,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-98aaab96.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-bbb446d2.mjs').then((m) => m.default || m)
   },
   {
     name: "jikan",
@@ -344,7 +344,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/jikan-4ad8372e.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/jikan-6fb321d9.mjs').then((m) => m.default || m)
   },
   {
     name: "suuji",
@@ -352,7 +352,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/suuji-b0f5e2e6.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/suuji-18fea185.mjs').then((m) => m.default || m)
   }
 ];
 const appHead = { "meta": [{ "name": "viewport", "content": "width=device-width, initial-scale=1" }, { "charset": "utf-8" }], "link": [], "style": [], "script": [], "noscript": [] };
@@ -732,7 +732,7 @@ const _wrapIf = (component, props, slots) => {
   } };
 };
 const layouts = {
-  default: () => import('./_nuxt/default-7d7dbfa5.mjs').then((m) => m.default || m)
+  default: () => import('./_nuxt/default-e87a30b4.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = /* @__PURE__ */ defineComponent({
   name: "LayoutLoader",
