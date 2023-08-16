@@ -159,6 +159,14 @@ function remove (idx) {
   }
 }
 
+useHead({
+  title: '編集 - 聞き取りゲーム',
+  meta: [
+    { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
+    { name: 'description', content: '自分のテーマを編集' }
+  ]
+})
+
 onMounted(() => {
   getSavedData()
 })

@@ -233,6 +233,14 @@ function speak (text, lv) {
   utterance.volume = 1
   speechSynthesis.speak(utterance)
 }
+
+useHead({
+  title: '数字 - 聞き取りゲーム',
+  meta: [
+    { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
+    { name: 'description', content: '数字に関する聞き取りゲームをやりましょう' }
+  ]
+})
 </script>
 
 <style lang="scss">

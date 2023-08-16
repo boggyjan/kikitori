@@ -271,6 +271,14 @@ function speak (text, lv) {
   speechSynthesis.speak(utterance)
 }
 
+useHead({
+  title: route.params.name + ' - 聞き取りゲーム',
+  meta: [
+    { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
+    { name: 'description', content: route.params.name + 'に関する聞き取りゲームをやりましょう' }
+  ]
+})
+
 onMounted(() => {
   getSavedData()
 })
