@@ -53,10 +53,10 @@
             よくできたね！
           </template>
           <template v-else-if="rightPercent > 60">
-            たくさん聞けますね！
+            だんだんできたね！
           </template>
           <template v-else>
-            もっと頑張ってください。
+            もっと頑張ってね。
           </template>
         </div>
       </template>
