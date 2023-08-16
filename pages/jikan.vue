@@ -3,7 +3,7 @@
     <div v-if="gameStatus !== 'playing'">
       <template v-if="gameStatus === 'end'">
         <h2>
-          時間 レベル{{ level }}の 練習結果
+          時刻 レベル{{ level }}の 練習結果
         </h2>
         <table>
           <thead>
@@ -254,10 +254,10 @@ function speak (text, lv) {
 }
 
 useHead({
-  title: '時間 - 聞き取りゲーム',
+  title: '時刻 - 聞き取りゲーム',
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
-    { name: 'description', content: '時間に関する聞き取りゲームをやりましょう' }
+    { name: 'description', content: '時刻に関する聞き取りゲームをやりましょう' }
   ]
 })
 </script>

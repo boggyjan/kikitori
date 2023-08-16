@@ -8,7 +8,7 @@
       <ul>
         <li>
           <NuxtLink to="/jikan">
-            時間
+            時刻
           </NuxtLink>
         </li>
         <li>
