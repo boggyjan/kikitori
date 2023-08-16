@@ -62,9 +62,10 @@
             <button
               v-if="selectedIdx !== null"
               type="button"
+              class="outline"
               @click="addNew()"
             >
-              キャンセル
+              新しいのを作る
             </button>
             <button>
               保存
@@ -111,7 +112,12 @@ function addNew () {
 function save () {
   const saveTitle = title.value.replace(/^\s+|\s+$/g, '')
 
-  if (tests.value.find(item => item.title === saveTitle)) {
+  console.log(selectedIdx.value)
+
+  if (
+    selectedIdx.value === null &&
+    tests.value.find(item => item.title === saveTitle)
+  ) {
     alert('保存に失敗しました。すでに同じテーマがあります。')
     return
   }
@@ -142,6 +148,8 @@ function save () {
   }
 
   setSavedData()
+
+  alert('保存しました')
 }
 
 function remove (idx) {
