@@ -27,15 +27,29 @@ import 'node:url';
 import 'pathe';
 import 'http-graceful-shutdown';
 
+const title = "\u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0";
+const desc = "\u300C\u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0\u300D\u306B\u3064\u3044\u3066";
+const url = "https://kikitori.boggy.tw";
+const image = "https://kikitori.boggy.tw/images/share.jpg";
 const _sfc_main = {
   __name: "index",
   __ssrInlineRender: true,
   setup(__props) {
     useHead({
-      title: "\u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0",
+      title,
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1" },
-        { name: "description", content: "\u300C\u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0\u300D\u306B\u3064\u3044\u3066" }
+        { name: "description", content: desc },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", desc },
+        { name: "twitter:image", content: image },
+        { name: "og:type", content: "website" },
+        { name: "og:title", content: title },
+        { name: "og:description", content: desc },
+        { name: "og:image", content: image },
+        { name: "og:url", content: url },
+        { name: "og:site_name", content: "iDrip" }
       ]
     });
     return (_ctx, _push, _parent, _attrs) => {
@@ -51,4 +65,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=index-dfd4d11d.mjs.map
+//# sourceMappingURL=index-98aaab96.mjs.map

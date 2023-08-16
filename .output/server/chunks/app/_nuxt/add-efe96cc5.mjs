@@ -27,6 +27,10 @@ import 'node:url';
 import 'pathe';
 import 'http-graceful-shutdown';
 
+const metaTitle = "\u7DE8\u96C6 - \u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0";
+const desc = "\u81EA\u5206\u306E\u30C6\u30FC\u30DE\u3092\u7DE8\u96C6";
+const url = "https://kikitori.boggy.tw";
+const image = "https://kikitori.boggy.tw/images/share.jpg";
 const _sfc_main = {
   __name: "add",
   __ssrInlineRender: true,
@@ -37,10 +41,20 @@ const _sfc_main = {
     const questions = ref(null);
     ref(null);
     useHead({
-      title: "\u7DE8\u96C6 - \u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0",
+      title: metaTitle,
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1" },
-        { name: "description", content: "\u81EA\u5206\u306E\u30C6\u30FC\u30DE\u3092\u7DE8\u96C6" }
+        { name: "description", content: desc },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", desc },
+        { name: "twitter:image", content: image },
+        { name: "og:type", content: "website" },
+        { name: "og:title", content: title },
+        { name: "og:description", content: desc },
+        { name: "og:image", content: image },
+        { name: "og:url", content: url },
+        { name: "og:site_name", content: "iDrip" }
       ]
     });
     return (_ctx, _push, _parent, _attrs) => {
@@ -78,4 +92,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=add-cc9df9c8.mjs.map
+//# sourceMappingURL=add-efe96cc5.mjs.map
