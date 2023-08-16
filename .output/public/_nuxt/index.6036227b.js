@@ -1,1 +1,0 @@
-import{_ as c,c as o,o as t,a as e}from"./entry.282628cf.js";const n={},s=e("h2",null," 「聞き取り」について ",-1),_=e("p",null," 聞き取りゲームは「Web Speech API」という技術を活用したWebアプリケーションです。上の「時間」と「数字」は練習のテーマです。まずは一つリンクをクリックして、練習しましょう。他のテーマを練習したい場合、「＋」をクリックして、自分のテーマを作ってください。 ",-1),a=[s,_];function r(l,d){return t(),o("div",null,a)}const f=c(n,[["render",r]]);export{f as default};
