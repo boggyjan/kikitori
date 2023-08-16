@@ -320,7 +320,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/_name_-dddffb12.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/_name_-b89362ed.mjs').then((m) => m.default || m)
   },
   {
     name: "add",
@@ -328,7 +328,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/add-f1ee28a4.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/add-cc9df9c8.mjs').then((m) => m.default || m)
   },
   {
     name: "index",
@@ -336,7 +336,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-3106cdf7.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-2ad4dc1e.mjs').then((m) => m.default || m)
   },
   {
     name: "jikan",
@@ -344,7 +344,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/jikan-b81f8ccd.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/jikan-9263c739.mjs').then((m) => m.default || m)
   },
   {
     name: "suuji",
@@ -352,7 +352,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/suuji-9e4ed46c.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/suuji-3d0bd2d0.mjs').then((m) => m.default || m)
   }
 ];
 const appHead = { "meta": [{ "name": "viewport", "content": "width=device-width, initial-scale=1" }, { "charset": "utf-8" }], "link": [], "style": [], "script": [], "noscript": [] };

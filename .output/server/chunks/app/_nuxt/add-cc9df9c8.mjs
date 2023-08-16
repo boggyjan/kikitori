@@ -1,5 +1,31 @@
 import { ref, mergeProps, unref, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderList, ssrRenderClass, ssrInterpolate, ssrRenderAttr } from 'vue/server-renderer';
+import { u as useHead } from '../server.mjs';
+import 'ofetch';
+import 'hookable';
+import 'unctx';
+import 'vue-router';
+import 'h3';
+import 'ufo';
+import '@unhead/ssr';
+import 'unhead';
+import '@unhead/shared';
+import 'defu';
+import '../../nitro/node-server.mjs';
+import 'node-fetch-native/polyfill';
+import 'node:http';
+import 'node:https';
+import 'destr';
+import 'unenv/runtime/fetch/index';
+import 'scule';
+import 'klona';
+import 'ohash';
+import 'unstorage';
+import 'radix3';
+import 'node:fs';
+import 'node:url';
+import 'pathe';
+import 'http-graceful-shutdown';
 
 const _sfc_main = {
   __name: "add",
@@ -10,6 +36,13 @@ const _sfc_main = {
     const title = ref(null);
     const questions = ref(null);
     ref(null);
+    useHead({
+      title: "\u7DE8\u96C6 - \u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0",
+      meta: [
+        { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1" },
+        { name: "description", content: "\u81EA\u5206\u306E\u30C6\u30FC\u30DE\u3092\u7DE8\u96C6" }
+      ]
+    });
     return (_ctx, _push, _parent, _attrs) => {
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "_add" }, _attrs))}><h2> \u65B0\u3057\u3044\u7DF4\u7FD2\u3092\u4F5C\u308D\u3046\uFF01 </h2><hr><div class="grid"><div class="list"><h3> \u4FDD\u5B58\u3057\u305F\u30C6\u30FC\u30DE </h3>`);
       if (!unref(tests).length) {
@@ -45,4 +78,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=add-f1ee28a4.mjs.map
+//# sourceMappingURL=add-cc9df9c8.mjs.map

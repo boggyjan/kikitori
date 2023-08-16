@@ -1,6 +1,6 @@
 import { ref, computed, mergeProps, unref, useSSRContext } from 'vue';
-import { a as useRoute, b as useRouter } from '../server.mjs';
 import { ssrRenderAttrs, ssrInterpolate, ssrRenderList, ssrRenderClass, ssrIncludeBooleanAttr } from 'vue/server-renderer';
+import { u as useHead } from '../server.mjs';
 import 'ofetch';
 import 'hookable';
 import 'unctx';
@@ -28,27 +28,30 @@ import 'pathe';
 import 'http-graceful-shutdown';
 
 const _sfc_main = {
-  __name: "[name]",
+  __name: "jikan",
   __ssrInlineRender: true,
   setup(__props) {
-    useRoute();
-    useRouter();
     const gameStatus = ref(null);
     const level = ref(1);
     ref(1);
-    const title = ref(null);
-    const questions = ref([]);
     ref(null);
     const answers = ref([]);
     const answer = ref(null);
     const questionHistory = ref([]);
     const rightPercent = computed(() => Math.floor(questionHistory.value.filter((q) => q.question === q.answer).length / questionHistory.value.length * 100));
+    useHead({
+      title: "\u6642\u9593 - \u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0",
+      meta: [
+        { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1" },
+        { name: "description", content: "\u6642\u9593\u306B\u95A2\u3059\u308B\u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0\u3092\u3084\u308A\u307E\u3057\u3087\u3046" }
+      ]
+    });
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "_custom" }, _attrs))}>`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "_jikan" }, _attrs))}>`);
       if (unref(gameStatus) !== "playing") {
         _push(`<div>`);
         if (unref(gameStatus) === "end") {
-          _push(`<!--[--><h2>${ssrInterpolate(unref(title))} \u30EC\u30D9\u30EB${ssrInterpolate(unref(level))}\u306E \u7DF4\u7FD2\u7D50\u679C </h2><table><thead><tr><th>\u554F\u984C</th><th>\u7B54\u3048</th><th>\u7D50\u679C</th></tr></thead><tbody><!--[-->`);
+          _push(`<!--[--><h2> \u6642\u9593 \u30EC\u30D9\u30EB${ssrInterpolate(unref(level))}\u306E \u7DF4\u7FD2\u7D50\u679C </h2><table><thead><tr><th>\u554F\u984C</th><th>\u7B54\u3048</th><th>\u7D50\u679C</th></tr></thead><tbody><!--[-->`);
           ssrRenderList(unref(questionHistory), (q, idx) => {
             _push(`<tr><td><a href="#">${ssrInterpolate(q.question)}</a></td><td><a href="#">${ssrInterpolate(q.answer)}</a></td><td>${ssrInterpolate(q.question === q.answer ? "\u2B55\uFE0F" : "\u274C")}</td></tr>`);
           });
@@ -66,11 +69,7 @@ const _sfc_main = {
           }
           _push(`</div><!--]-->`);
         } else {
-          _push(`<!--[--><h2> \u4E0B\u8A18\u306F\u3053\u306E\u30C6\u30FC\u30DE\u300C${ssrInterpolate(unref(title))}\u300D\u306B\u5165\u308C\u305F\u5358\u8A9E </h2><div class="voc-list"><!--[-->`);
-          ssrRenderList(unref(questions), (item, idx) => {
-            _push(`<a href="#">${ssrInterpolate(item)}</a>`);
-          });
-          _push(`<!--]--></div><!--]-->`);
+          _push(`<!--[--><h2> \u6CE8\u610F\u3059\u3079\u304D\u3068\u3053\u308D </h2><ul><li>\u300C1\u5206\u300D\u306F\u300C\u3044\u3063\u3077\u3093\u300D</li><li>\u300C3\u5206\u300D\u306F\u300C\u3055\u3093\u3077\u3093\u3001\u3055\u3093\u3075\u3093\u300D</li><li>\u300C4\u5206\u300D\u306F\u300C\u3088\u3093\u3077\u3093\u3001\u3088\u3093\u3075\u3093\u300D</li><li>\u300C4\u6642\u300D\u306F\u300C\u3088\u3058\u300D</li><li>\u300C6\u5206\u300D\u306F\u300C\u308D\u3063\u3077\u3093\u300D</li><li>\u300C7\u5206\u300D\u306F\u300C\u306A\u306A\u3075\u3093\u300D</li><li>\u300C8\u5206\u300D\u306F\u300C\u306F\u3063\u3077\u3093\u3001\u306F\u3061\u3075\u3093\u300D</li><li>\u300C10\u5206\u300D\u306F\u300C\u3058\u3085\u3063\u3077\u3093\u300D</li></ul><!--]-->`);
         }
         _push(`<hr><div class="actions"><div class="action-head">`);
         if (unref(gameStatus) === null) {
@@ -95,9 +94,9 @@ const _sfc_main = {
 const _sfc_setup = _sfc_main.setup;
 _sfc_main.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/[name].vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/jikan.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=_name_-dddffb12.mjs.map
+//# sourceMappingURL=jikan-9263c739.mjs.map

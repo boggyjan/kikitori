@@ -1,5 +1,31 @@
 import { ref, computed, mergeProps, unref, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrInterpolate, ssrRenderList, ssrRenderClass, ssrIncludeBooleanAttr } from 'vue/server-renderer';
+import { u as useHead } from '../server.mjs';
+import 'ofetch';
+import 'hookable';
+import 'unctx';
+import 'vue-router';
+import 'h3';
+import 'ufo';
+import '@unhead/ssr';
+import 'unhead';
+import '@unhead/shared';
+import 'defu';
+import '../../nitro/node-server.mjs';
+import 'node-fetch-native/polyfill';
+import 'node:http';
+import 'node:https';
+import 'destr';
+import 'unenv/runtime/fetch/index';
+import 'scule';
+import 'klona';
+import 'ohash';
+import 'unstorage';
+import 'radix3';
+import 'node:fs';
+import 'node:url';
+import 'pathe';
+import 'http-graceful-shutdown';
 
 const _sfc_main = {
   __name: "suuji",
@@ -13,6 +39,13 @@ const _sfc_main = {
     const answer = ref(null);
     const questionHistory = ref([]);
     const rightPercent = computed(() => Math.floor(questionHistory.value.filter((q) => q.question === q.answer).length / questionHistory.value.length * 100));
+    useHead({
+      title: "\u6570\u5B57 - \u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0",
+      meta: [
+        { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1" },
+        { name: "description", content: "\u6570\u5B57\u306B\u95A2\u3059\u308B\u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0\u3092\u3084\u308A\u307E\u3057\u3087\u3046" }
+      ]
+    });
     return (_ctx, _push, _parent, _attrs) => {
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "_suuji" }, _attrs))}>`);
       if (unref(gameStatus) !== "playing") {
@@ -66,4 +99,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=suuji-9e4ed46c.mjs.map
+//# sourceMappingURL=suuji-3d0bd2d0.mjs.map
