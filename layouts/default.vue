@@ -114,7 +114,9 @@ input, textarea {
   }
 }
 
+.btn,
 button {
+  display: inline-block;
   box-sizing: border-box;
   margin: 0.4rem;
   padding: 0.8rem 2.2rem;
@@ -125,6 +127,7 @@ button {
   cursor: pointer;
   font-size: 1rem;
   transition: filter 0.3s, box-shadow 0.3s;
+  text-align: center;
 
   &:hover {
     filter: brightness(1.6);
