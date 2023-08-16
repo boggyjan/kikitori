@@ -3,7 +3,7 @@
     <div v-if="gameStatus !== 'playing'">
       <template v-if="gameStatus === 'end'">
         <h2>
-          練習結果
+          時間 レベル{{ level }}の 練習結果
         </h2>
         <table>
           <thead>

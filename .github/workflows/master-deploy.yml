@@ -1,0 +1,54 @@
+name: Deploy Master
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 16.x ]
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Merge master -> master-deploy
+        run: |
+          git config --global user.name "Auto Deploy by Github Actions"
+          git config --global user.email "boggyjan@gmail.com"
+          git fetch
+          git checkout master
+          git pull
+          git checkout master-deploy
+          git pull
+          git merge master
+          git push
+
+      # 安裝nodejs
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # npm ci (npm install) ci比install快
+      - name: Install dependencies
+        run: npm ci
+
+      # complile
+      - name: Build
+        run: npm run build --if-present
+
+      # commit到github
+      - name: Commit Build
+        run: |
+          git add .
+          git commit -m "[Master Build] $(date +'%Y-%m-%d %H:%M:%S')"
+          git push
