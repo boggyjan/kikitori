@@ -74,10 +74,10 @@ const _sfc_main$1 = {
       _push(ssrRenderComponent(_component_NuxtLink, { to: "/jikan" }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(` \u6642\u9593 `);
+            _push2(` \u6642\u523B `);
           } else {
             return [
-              createTextVNode(" \u6642\u9593 ")
+              createTextVNode(" \u6642\u523B ")
             ];
           }
         }),
@@ -164,4 +164,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=default-b6c7d545.mjs.map
+//# sourceMappingURL=default-7d7dbfa5.mjs.map

@@ -40,10 +40,10 @@ const _sfc_main = {
     const questionHistory = ref([]);
     const rightPercent = computed(() => Math.floor(questionHistory.value.filter((q) => q.question === q.answer).length / questionHistory.value.length * 100));
     useHead({
-      title: "\u6642\u9593 - \u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0",
+      title: "\u6642\u523B - \u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0",
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1" },
-        { name: "description", content: "\u6642\u9593\u306B\u95A2\u3059\u308B\u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0\u3092\u3084\u308A\u307E\u3057\u3087\u3046" }
+        { name: "description", content: "\u6642\u523B\u306B\u95A2\u3059\u308B\u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0\u3092\u3084\u308A\u307E\u3057\u3087\u3046" }
       ]
     });
     return (_ctx, _push, _parent, _attrs) => {
@@ -51,7 +51,7 @@ const _sfc_main = {
       if (unref(gameStatus) !== "playing") {
         _push(`<div>`);
         if (unref(gameStatus) === "end") {
-          _push(`<!--[--><h2> \u6642\u9593 \u30EC\u30D9\u30EB${ssrInterpolate(unref(level))}\u306E \u7DF4\u7FD2\u7D50\u679C </h2><table><thead><tr><th>\u554F\u984C</th><th>\u7B54\u3048</th><th>\u7D50\u679C</th></tr></thead><tbody><!--[-->`);
+          _push(`<!--[--><h2> \u6642\u523B \u30EC\u30D9\u30EB${ssrInterpolate(unref(level))}\u306E \u7DF4\u7FD2\u7D50\u679C </h2><table><thead><tr><th>\u554F\u984C</th><th>\u7B54\u3048</th><th>\u7D50\u679C</th></tr></thead><tbody><!--[-->`);
           ssrRenderList(unref(questionHistory), (q, idx) => {
             _push(`<tr><td><a href="#">${ssrInterpolate(q.question)}</a></td><td><a href="#">${ssrInterpolate(q.answer)}</a></td><td>${ssrInterpolate(q.question === q.answer ? "\u2B55\uFE0F" : "\u274C")}</td></tr>`);
           });
@@ -99,4 +99,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=jikan-9263c739.mjs.map
+//# sourceMappingURL=jikan-47a949b9.mjs.map

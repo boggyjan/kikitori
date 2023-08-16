@@ -336,7 +336,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-2ad4dc1e.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-dfd4d11d.mjs').then((m) => m.default || m)
   },
   {
     name: "jikan",
@@ -344,7 +344,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/jikan-9263c739.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/jikan-47a949b9.mjs').then((m) => m.default || m)
   },
   {
     name: "suuji",
@@ -732,7 +732,7 @@ const _wrapIf = (component, props, slots) => {
   } };
 };
 const layouts = {
-  default: () => import('./_nuxt/default-b6c7d545.mjs').then((m) => m.default || m)
+  default: () => import('./_nuxt/default-7d7dbfa5.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = /* @__PURE__ */ defineComponent({
   name: "LayoutLoader",
