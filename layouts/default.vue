@@ -1,4 +1,28 @@
 <template>
+  <client-only>
+    <!-- eslint-disable -->
+    <component
+      :is="'script'"
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8209950884395919"
+      crossorigin="anonymous"
+    />
+    <!-- Google tag (gtag.js) -->
+    <component
+      :is="'script'"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-H1S1GGV8WJ"
+    />
+    <component :is="'script'">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-H1S1GGV8WJ');
+    </component>
+    <!-- eslint-enable -->
+  </client-only>
+
   <div class="layout">
     <Header />
     <div class="main">
