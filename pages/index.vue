@@ -10,11 +10,26 @@
 </template>
 
 <script setup>
+const title = '聞き取りゲーム'
+const desc = '「聞き取りゲーム」について'
+const url = 'https://kikitori.boggy.tw'
+const image = 'https://kikitori.boggy.tw/images/share.jpg'
+
 useHead({
-  title: '聞き取りゲーム',
+  title,
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
-    { name: 'description', content: '「聞き取りゲーム」について' }
+    { name: 'description', content: desc },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: title },
+    { name: 'twitter:description', desc },
+    { name: 'twitter:image', content: image },
+    { name: 'og:type', content: 'website' },
+    { name: 'og:title', content: title },
+    { name: 'og:description', content: desc },
+    { name: 'og:image', content: image },
+    { name: 'og:url', content: url },
+    { name: 'og:site_name', content: 'iDrip' }
   ]
 })
 </script>
