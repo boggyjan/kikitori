@@ -1,8 +1,8 @@
 const client_manifest = {
-  "_nuxt-link.a27a6dba.js": {
+  "_nuxt-link.94d8a841.js": {
     "resourceType": "script",
     "module": true,
-    "file": "nuxt-link.a27a6dba.js",
+    "file": "nuxt-link.94d8a841.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
@@ -16,10 +16,10 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "default.acc22268.js",
+    "file": "default.282a3ff0.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_nuxt-link.a27a6dba.js"
+      "_nuxt-link.94d8a841.js"
     ],
     "isDynamicEntry": true,
     "src": "layouts/default.vue"
@@ -37,9 +37,9 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "error-404.a142d929.js",
+    "file": "error-404.83306782.js",
     "imports": [
-      "_nuxt-link.a27a6dba.js",
+      "_nuxt-link.94d8a841.js",
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "isDynamicEntry": true,
@@ -58,7 +58,7 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "error-500.66c871a6.js",
+    "file": "error-500.174309ae.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -77,7 +77,7 @@ const client_manifest = {
       "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
       "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue"
     ],
-    "file": "entry.b59cf824.js",
+    "file": "entry.afa0d876.js",
     "isEntry": true,
     "src": "node_modules/nuxt/dist/app/entry.js"
   },
@@ -90,7 +90,7 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "_name_.e4028e31.js",
+    "file": "_name_.9e1f5ad3.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -110,7 +110,7 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "add.803693f5.js",
+    "file": "add.e10af3bc.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -124,7 +124,7 @@ const client_manifest = {
   "pages/index.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "index.8488caad.js",
+    "file": "index.512b7f7d.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -140,7 +140,7 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "jikan.05a897c2.js",
+    "file": "jikan.dc56bb62.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -160,7 +160,7 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "suuji.d30114a6.js",
+    "file": "suuji.ce7af8d8.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
