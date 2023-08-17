@@ -1,5 +1,5 @@
-import { ref, mergeProps, withCtx, openBlock, createBlock, Fragment, renderList, createVNode, createTextVNode, unref, toDisplayString, useSSRContext } from 'vue';
-import { ssrRenderAttrs, ssrRenderComponent, ssrRenderList, ssrRenderAttr, ssrInterpolate, ssrRenderStyle, ssrRenderClass, ssrRenderSlot } from 'vue/server-renderer';
+import { ref, mergeProps, withCtx, openBlock, createBlock, Fragment, renderList, createVNode, createTextVNode, unref, toDisplayString, resolveDynamicComponent, useSSRContext } from 'vue';
+import { ssrRenderAttrs, ssrRenderComponent, ssrRenderList, ssrRenderAttr, ssrInterpolate, ssrRenderVNode, ssrRenderStyle, ssrRenderClass, ssrRenderSlot } from 'vue/server-renderer';
 import { d as useState, u as useHead, _ as _export_sfc } from '../server.mjs';
 import { _ as __nuxt_component_0$1 } from './nuxt-link-563b35af.mjs';
 import 'ofetch';
@@ -554,7 +554,26 @@ const _sfc_main = {
         }),
         _: 1
       }, _parent));
-      _push(`</nav><hr><h2> \u300C\u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0\u300D\u306B\u3064\u3044\u3066 </h2><p> \u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0\u306F\u300CWeb Speech API\u300D\u3068\u3044\u3046\u6280\u8853\u3092\u6D3B\u7528\u3057\u305FWeb\u30A2\u30D7\u30EA\u30B1\u30FC\u30B7\u30E7\u30F3\u3067\u3059\u3002\u4E0A\u306E\u300C\u6642\u9593\u300D\u3084\u300C\u6570\u5B57\u300D\u306A\u3069\u304C\u7DF4\u7FD2\u306E\u30C6\u30FC\u30DE\u3067\u3059\u3002\u307E\u305A\u306F\u4E00\u3064\u30EA\u30F3\u30AF\u3092\u30AF\u30EA\u30C3\u30AF\u3057\u3066\u3001\u7DF4\u7FD2\u3057\u307E\u3057\u3087\u3046\u3002\u4ED6\u306E\u30C6\u30FC\u30DE\u3092\u7DF4\u7FD2\u3057\u305F\u3044\u5834\u5408\u3001\u300C+ \u30C6\u30FC\u30DE\u300D\u3092\u30AF\u30EA\u30C3\u30AF\u3057\u3066\u3001\u81EA\u5206\u306E\u30C6\u30FC\u30DE\u3092\u4F5C\u3063\u3066\u304F\u3060\u3055\u3044\u3002 </p></div></div>`);
+      _push(`</nav><div class="google-ad">`);
+      ssrRenderVNode(_push, createVNode(resolveDynamicComponent("script"), {
+        async: "",
+        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8209950884395919",
+        crossorigin: "anonymous"
+      }, null), _parent);
+      _push(`<ins class="adsbygoogle" style="${ssrRenderStyle({ "display": "block" })}" data-ad-client="ca-pub-8209950884395919" data-ad-slot="4250291761" data-ad-format="auto" data-full-width-responsive="true"></ins>`);
+      ssrRenderVNode(_push, createVNode(resolveDynamicComponent("script"), null, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(` (adsbygoogle = window.adsbygoogle || []).push({}); `);
+          } else {
+            return [
+              createTextVNode(" (adsbygoogle = window.adsbygoogle || []).push({}); ")
+            ];
+          }
+        }),
+        _: 1
+      }), _parent);
+      _push(`</div><hr><h2> \u300C\u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0\u300D\u306B\u3064\u3044\u3066 </h2><p> \u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0\u306F\u300CWeb Speech API\u300D\u3068\u3044\u3046\u6280\u8853\u3092\u6D3B\u7528\u3057\u305FWeb\u30A2\u30D7\u30EA\u30B1\u30FC\u30B7\u30E7\u30F3\u3067\u3059\u3002\u4E0A\u306E\u300C\u6642\u9593\u300D\u3084\u300C\u6570\u5B57\u300D\u306A\u3069\u304C\u7DF4\u7FD2\u306E\u30C6\u30FC\u30DE\u3067\u3059\u3002\u307E\u305A\u306F\u4E00\u3064\u30EA\u30F3\u30AF\u3092\u30AF\u30EA\u30C3\u30AF\u3057\u3066\u3001\u7DF4\u7FD2\u3057\u307E\u3057\u3087\u3046\u3002\u4ED6\u306E\u30C6\u30FC\u30DE\u3092\u7DF4\u7FD2\u3057\u305F\u3044\u5834\u5408\u3001\u300C+ \u30C6\u30FC\u30DE\u300D\u3092\u30AF\u30EA\u30C3\u30AF\u3057\u3066\u3001\u81EA\u5206\u306E\u30C6\u30FC\u30DE\u3092\u4F5C\u3063\u3066\u304F\u3060\u3055\u3044\u3002 </p></div></div>`);
     };
   }
 };
@@ -566,4 +585,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=index-bd10c14f.mjs.map
+//# sourceMappingURL=index-3907a359.mjs.map

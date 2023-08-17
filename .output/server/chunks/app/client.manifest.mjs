@@ -1,31 +1,31 @@
 const client_manifest = {
-  "_nuxt-link.d4682547.js": {
+  "_nuxt-link.757909d1.js": {
     "resourceType": "script",
     "module": true,
-    "file": "nuxt-link.d4682547.js",
+    "file": "nuxt-link.757909d1.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
   },
   "layouts/default.css": {
     "resourceType": "style",
-    "file": "default.331dc119.css",
+    "file": "default.59a4e078.css",
     "src": "layouts/default.css"
   },
   "layouts/default.vue": {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "default.0b0794d4.js",
+    "file": "default.e863bc06.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_nuxt-link.d4682547.js"
+      "_nuxt-link.757909d1.js"
     ],
     "isDynamicEntry": true,
     "src": "layouts/default.vue"
   },
-  "default.331dc119.css": {
-    "file": "default.331dc119.css",
+  "default.59a4e078.css": {
+    "file": "default.59a4e078.css",
     "resourceType": "style"
   },
   "node_modules/@nuxt/ui-templates/dist/templates/error-404.css": {
@@ -37,9 +37,9 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "error-404.30af89ac.js",
+    "file": "error-404.01002b11.js",
     "imports": [
-      "_nuxt-link.d4682547.js",
+      "_nuxt-link.757909d1.js",
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "isDynamicEntry": true,
@@ -58,7 +58,7 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "error-500.29aef41f.js",
+    "file": "error-500.07f75986.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -77,29 +77,19 @@ const client_manifest = {
       "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
       "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue"
     ],
-    "file": "entry.8b060c9b.js",
+    "file": "entry.bc1587d5.js",
     "isEntry": true,
     "src": "node_modules/nuxt/dist/app/entry.js"
-  },
-  "pages/[name].css": {
-    "resourceType": "style",
-    "file": "_name_.d0afacca.css",
-    "src": "pages/[name].css"
   },
   "pages/[name].vue": {
     "resourceType": "script",
     "module": true,
-    "css": [],
-    "file": "_name_.0081f49d.js",
+    "file": "_name_.8d52de5d.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/[name].vue"
-  },
-  "_name_.d0afacca.css": {
-    "file": "_name_.d0afacca.css",
-    "resourceType": "style"
   },
   "pages/add.css": {
     "resourceType": "style",
@@ -110,7 +100,7 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "add.99c6236e.js",
+    "file": "add.91b1ce93.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -130,10 +120,10 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "index.7224a98c.js",
+    "file": "index.436a649b.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_nuxt-link.d4682547.js"
+      "_nuxt-link.757909d1.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/index.vue"
@@ -142,45 +132,25 @@ const client_manifest = {
     "file": "index.7cd6bdb6.css",
     "resourceType": "style"
   },
-  "pages/jikoku.css": {
-    "resourceType": "style",
-    "file": "jikoku.24de43bb.css",
-    "src": "pages/jikoku.css"
-  },
   "pages/jikoku.vue": {
     "resourceType": "script",
     "module": true,
-    "css": [],
-    "file": "jikoku.551d08ea.js",
+    "file": "jikoku.70d30348.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/jikoku.vue"
   },
-  "jikoku.24de43bb.css": {
-    "file": "jikoku.24de43bb.css",
-    "resourceType": "style"
-  },
-  "pages/suuji.css": {
-    "resourceType": "style",
-    "file": "suuji.4cfb0b77.css",
-    "src": "pages/suuji.css"
-  },
   "pages/suuji.vue": {
     "resourceType": "script",
     "module": true,
-    "css": [],
-    "file": "suuji.b8cebd8b.js",
+    "file": "suuji.96c41dbd.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/suuji.vue"
-  },
-  "suuji.4cfb0b77.css": {
-    "file": "suuji.4cfb0b77.css",
-    "resourceType": "style"
   }
 };
 
