@@ -1,5 +1,5 @@
 <template>
-  <div class="main _suuji">
+  <div class="main _test _suuji">
     <div v-if="gameStatus !== 'playing'">
       <template v-if="gameStatus === 'end'">
         <h2>
@@ -258,58 +258,3 @@ useHead({
   ]
 })
 </script>
-
-<style lang="scss">
-._suuji {
-  .notice-list {
-    padding: 1rem 0 1rem 2.4rem;
-    background: var(--green);
-    border-radius: 1rem;
-    color: var(--white);
-    font-weight: bold;
-    line-height: 2;
-  }
-
-  .actions {
-    @media (max-width: 767px) {
-      button {
-        display: block;
-        width: 100%;
-        margin: 0.4rem 0;
-      }
-    }
-  }
-
-  .answers {
-    text-align: center;
-
-    .answer-head {
-      margin-bottom: 2rem;
-      font-weight: bold;
-    }
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid var(--primary);
-    text-align: center;
-
-    th {
-      background: var(--primary);
-    }
-
-    th, td {
-      padding: 0.4rem 1rem;
-      border: 1px solid var(--primary);
-    }
-  }
-
-  .result {
-    margin-top: 2rem;
-    color: var(--primary);
-    font-size: 2rem;
-    text-align: center;
-  }
-}
-</style>

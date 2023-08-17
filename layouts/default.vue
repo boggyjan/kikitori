@@ -1,12 +1,6 @@
 <template>
   <client-only>
     <!-- eslint-disable -->
-    <component
-      :is="'script'"
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8209950884395919"
-      crossorigin="anonymous"
-    />
     <!-- Google tag (gtag.js) -->
     <component
       :is="'script'"
@@ -71,9 +65,11 @@ if (!process.server) {
   --tertiary: #78ba2a;
   --white: #fcfcfc;
   --black: #111111;
+  --red: #f84c47;
   --green: #93cb5c;
   --blue: #29b0c3;
-  --textfield: #654;
+  --textfield-border-color: #654;
+  --textfield-focus-border-color: #789;
   --alert-border: #7899;
   --alert-bg: #5679;
   --carousel-pagination: var(--green);
@@ -121,12 +117,12 @@ input, textarea {
   width: 100%;
   padding: 0.8rem 0.4rem;
   outline: none;
-  border: 2px solid var(--textfield);
+  border: 2px solid var(--textfield-border-color);
   border-radius: 0.2rem;
   font-size: 1rem;
 
   &:focus {
-    border-color: #fff;
+    border-color: var(--textfield-focus-border-color);
   }
 }
 
@@ -158,7 +154,7 @@ button {
 
   &:disabled {
     pointer-events: none;
-    filter: grayscale(40%);
+    filter: grayscale(80%) brightness(1.2);
   }
 
   &.outline {
@@ -210,6 +206,49 @@ button {
   }
 }
 
+table {
+  width: 100%;
+  background: var(--white);
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: center;
+
+  th {
+    background: var(--green);
+
+    &:first-child {
+      border-top-left-radius: 1rem;
+    }
+
+    &:last-child {
+      border-top-right-radius: 1rem;
+    }
+  }
+
+  th, td {
+    padding: 0.8rem 1rem;
+    border-right: 1px solid var(--green);
+    border-bottom: 1px solid var(--green);
+  }
+
+  th:first-child,
+  td:first-child {
+    border-left: 1px solid var(--green);
+  }
+
+  tbody tr:last-child {
+    td {
+      &:first-child {
+        border-bottom-left-radius: 1rem;
+      }
+
+      &:last-child {
+        border-bottom-right-radius: 1rem;
+      }
+    }
+  }
+}
+
 .alert {
   margin: 1rem 0;
   padding: 0.75rem;
@@ -221,6 +260,74 @@ button {
 .layout {
   .main {
     padding: 1rem 1.8rem;
+  }
+}
+
+.google-ad {
+  margin: 2rem 0;
+  
+  // 隱藏沒顯示的google廣告
+  ins[data-ad-status='unfilled'] {
+    display: none !important;
+  }
+}
+
+._test {
+  .actions {
+    text-align: center;
+
+    @media (max-width: 767px) {
+      button {
+        display: block;
+        width: 100%;
+        margin: 0.4rem 0;
+      }
+    }
+  }
+
+  .answers {
+    text-align: center;
+
+    .answer-head {
+      margin-bottom: 2rem;
+      font-weight: bold;
+    }
+  }
+
+  .result {
+    margin-top: 2rem;
+    color: var(--primary);
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .notice-list {
+    padding: 1rem 0 1rem 2.4rem;
+    background: var(--green);
+    border-radius: 1rem;
+    color: var(--white);
+    font-weight: bold;
+    line-height: 2;
+  }
+
+  .voc-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+    padding: 1rem 1.4rem;
+    background: var(--green);
+    border-radius: 1rem;
+    color: var(--white);
+    font-weight: bold;
+    line-height: 2;
+
+    @media (max-width: 991px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 }
 </style>
