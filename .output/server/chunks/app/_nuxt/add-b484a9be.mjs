@@ -60,7 +60,7 @@ const _sfc_main = {
       ]
     });
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "main _add" }, _attrs))}><h2> \u65B0\u3057\u3044\u7DF4\u7FD2\u3092\u4F5C\u308D\u3046\uFF01 </h2><hr><div class="grid"><div class="list"><h3> \u4FDD\u5B58\u3057\u305F\u30C6\u30FC\u30DE </h3>`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "main _add" }, _attrs))}><h2> \u65B0\u3057\u3044\u7DF4\u7FD2\u3092\u4F5C\u308D\u3046\uFF01 </h2><div> \u4F5C\u6210\u3057\u305F\u30C7\u30FC\u30BF\u306F\u3053\u306E\u30D6\u30E9\u30A6\u30B6\u306B\u4FDD\u5B58\u3055\u308C\u308B\u306E\u3067\u3001\u81EA\u5206\u3057\u304B\u898B\u308B\u3053\u3068\u304C\u3067\u304D\u307E\u305B\u3093\u3002 </div><hr><div class="grid"><div class="list"><h3> \u4FDD\u5B58\u3057\u305F\u30C6\u30FC\u30DE </h3>`);
       if (!unref(tests).length) {
         _push(`<div class="alert"> \u30C7\u30FC\u30BF\u304C\u3042\u308A\u307E\u305B\u3093 </div>`);
       } else {
@@ -94,4 +94,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=add-27dc6f50.mjs.map
+//# sourceMappingURL=add-b484a9be.mjs.map
