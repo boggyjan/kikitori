@@ -1,7 +1,7 @@
 <template>
   <div class="site-header">
     <div class="header-bar">
-      <div>
+      <div class="logo-with-sub">
         <NuxtLink
           to="/"
           class="home-link"
@@ -65,10 +65,19 @@ const pTitle = useState('pTitle')
       }
     }
 
+    .logo-with-sub {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+    }
+
     .sub-title {
       display: inline-block;
       margin-left: 1rem;
       padding-left: 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       border-left: 1px solid #aaa;
       color: #aaa;
       line-height: 1;
@@ -81,9 +90,6 @@ const pTitle = useState('pTitle')
     &:hover {
       text-decoration: initial;
     }
-  }
-
-  .back-btn {
   }
 }
 </style>
