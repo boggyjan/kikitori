@@ -25,9 +25,8 @@
 
   <div class="layout">
     <Header />
-    <div class="main">
-      <slot />
-    </div>
+    <slot />
+    <Footer />
   </div>
 </template>
 
@@ -67,19 +66,27 @@ if (!process.server) {
 
 <style lang="scss">
 :root {
-  --primary: #df343a;
-  --secondary: #62a0bd;
+  --primary: #f7b530;
+  --secondary: #1ec6dd;
+  --tertiary: #78ba2a;
+  --white: #fcfcfc;
+  --black: #111111;
+  --green: #93cb5c;
+  --blue: #29b0c3;
   --textfield: #654;
   --alert-border: #7899;
   --alert-bg: #5679;
+  --carousel-pagination: var(--green);
 }
 
 html {
-  background: #111;
-  background-image: linear-gradient(0deg, #111, #123);
-  background-position: top center;
-  background-repeat: no-repeat;
-  color: #f1f1f1;
+  background: #fff;
+  background-image: url('/images/dot_bg.png');
+  background-size: 300px 300px;
+  // background-image: linear-gradient(0deg, #f1f1f1, #ffffff);
+  // background-position: top center;
+  // background-repeat: no-repeat;
+  color: #222;
   font-size: 16px;
   font-family: sans-serif;
 }
@@ -92,11 +99,20 @@ a {
   color: currentColor;
 }
 
+h2 {
+  width: fit-content;
+  background-image: linear-gradient(90deg, #29b0c3, #abc329);
+  background-clip: text;
+  color: transparent;
+}
+
 hr {
-  height: 1px;
+  height: 2px;
   margin: 2rem 0;
   border: 0;
-  background: #fff2;
+  border-radius: 100px;
+  border: 3px solid #eee;
+  background: #fff;
 }
 
 input, textarea {
@@ -122,16 +138,22 @@ button {
   padding: 0.8rem 2.2rem;
   background: var(--primary);
   border: 2px solid var(--primary);
-  border-radius: 0.2rem;
+  border-radius: 0.4rem;
   color: currentColor;
   cursor: pointer;
   font-size: 1rem;
+  font-weight: bold;
   transition: filter 0.3s, box-shadow 0.3s;
   text-align: center;
 
+  &.active,
   &:hover {
-    filter: brightness(1.6);
-    box-shadow: 0 0 10px var(--primary);
+    filter: brightness(1.1);
+    // box-shadow: 0 0 10px var(--primary);
+  }
+
+  &.active {
+    border-color: #0004;
   }
 
   &:disabled {
@@ -139,25 +161,46 @@ button {
     filter: grayscale(40%);
   }
 
+  &.outline {
+    background: transparent;
+    color: var(--primary);
+
+    &.active,
+    &:hover {
+      background: var(--primary);
+      color: currentColor;
+    }
+  }
+
   &.secondary {
     background: var(--secondary);
     border: 2px solid var(--secondary);
   }
 
-  &.outline {
+  &.outline.secondary {
     background: transparent;
-    color: var(--primary);
+    color: var(--secondary);
 
+    &.active,
     &:hover {
-      box-shadow: 0 0 10px var(--primary), 0 0 10px var(--primary) inset;
+      background: var(--secondary);
+      color: currentColor;
     }
   }
 
-  &.outline.secondary {
-    color: var(--secondary);
+  &.tertiary {
+    background: var(--tertiary);
+    border: 2px solid var(--tertiary);
+  }
 
+  &.outline.tertiary {
+    background: transparent;
+    color: var(--tertiary);
+
+    &.active,
     &:hover {
-      box-shadow: 0 0 10px var(--secondary), 0 0 10px var(--secondary) inset;
+      background: var(--tertiary);
+      color: currentColor;
     }
   }
 

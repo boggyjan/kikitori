@@ -1,5 +1,5 @@
 <template>
-  <div class="_jikan">
+  <div class="main _jikan">
     <div v-if="gameStatus !== 'playing'">
       <template v-if="gameStatus === 'end'">
         <h2>
@@ -64,7 +64,7 @@
         <h2>
           注意すべきところ
         </h2>
-        <ul>
+        <ul class="notice-list">
           <li>「1分」は「いっぷん」</li>
           <li>「3分」は「さんぷん、さんふん」</li>
           <li>「4分」は「よんぷん、よんふん」</li>
@@ -79,14 +79,14 @@
       <hr>
 
       <div class="actions">
-        <div class="action-head">
+        <h2>
           <template v-if="gameStatus === null">
             始めましょう！
           </template>
           <template v-else>
             もう一度しましょう！
           </template>
-        </div>
+        </h2>
 
         <button
           type="button"
@@ -111,15 +111,15 @@
 
     <div v-else-if="gameStatus === 'playing'">
       <div class="answers">
-        <div class="answer-head">
+        <h3 class="answer-head">
           正しい答えを選んでください
-        </div>
+        </h3>
         <button
           v-for="(ans, idx) in answers"
           :key="`ans_${idx}`"
           type="button"
-          class="ans"
-          :class="{ active: answer === ans }"
+          class="tertiary ans"
+          :class="{ outline: answer !== ans }"
           @click="setAns(ans)"
         >
           {{ ans }}
@@ -131,7 +131,7 @@
       <div class="actions">
         <button
           type="button"
-          class="outline"
+          class="secondary outline"
           @click="replay()"
         >
           もう一度聞く
@@ -253,11 +253,12 @@ function speak (text, lv) {
   speechSynthesis.speak(utterance)
 }
 
+const pTitle = useState('pTitle')
+pTitle.value = '時刻'
 const title = '時刻 - 聞き取りゲーム'
 const desc = '時刻に関する聞き取りゲームをやりましょう'
 const url = 'https://kikitori.boggy.tw'
 const image = 'https://kikitori.boggy.tw/images/share.jpg'
-
 useHead({
   title,
   meta: [
@@ -279,14 +280,16 @@ useHead({
 
 <style lang="scss">
 ._jikan {
+  .notice-list {
+    padding: 1rem 0 1rem 2.4rem;
+    background: var(--green);
+    border-radius: 1rem;
+    color: var(--white);
+    font-weight: bold;
+    line-height: 2;
+  }
+
   .actions {
-    text-align: center;
-
-    .action-head {
-      margin-bottom: 2rem;
-      font-weight: bold;
-    }
-
     @media (max-width: 767px) {
       button {
         display: block;
@@ -302,12 +305,6 @@ useHead({
     .answer-head {
       margin-bottom: 2rem;
       font-weight: bold;
-    }
-  }
-
-  .ans {
-    &.active {
-      border-color: #fff;
     }
   }
 
