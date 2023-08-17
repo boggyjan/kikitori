@@ -158,7 +158,7 @@ button {
   }
 
   &.outline {
-    background: transparent;
+    background: var(--white);
     color: var(--primary);
 
     &.active,
@@ -174,7 +174,7 @@ button {
   }
 
   &.outline.secondary {
-    background: transparent;
+    background: var(--white);
     color: var(--secondary);
 
     &.active,
@@ -190,7 +190,7 @@ button {
   }
 
   &.outline.tertiary {
-    background: transparent;
+    background: var(--white);
     color: var(--tertiary);
 
     &.active,
