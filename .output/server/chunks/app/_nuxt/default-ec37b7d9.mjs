@@ -57,7 +57,7 @@ const _sfc_main$2 = {
     const pTitle = useState("pTitle");
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$1;
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "site-header" }, _attrs))}><div class="header-bar"><div>`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "site-header" }, _attrs))}><div class="header-bar"><div class="logo-with-sub">`);
       _push(ssrRenderComponent(_component_NuxtLink, {
         to: "/",
         class: "home-link"
@@ -147,4 +147,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=default-2362d300.mjs.map
+//# sourceMappingURL=default-ec37b7d9.mjs.map
