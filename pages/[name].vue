@@ -1,5 +1,5 @@
 <template>
-  <div class="main _custom">
+  <div class="main _test _custom">
     <div v-if="gameStatus !== 'playing'">
       <template v-if="gameStatus === 'end'">
         <h2>
@@ -143,6 +143,22 @@
         >
           次へ
         </button>
+      </div>
+
+      <div class="google-ad">
+        <!-- eslint-disable -->
+        <component :is="'script'" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8209950884395919" crossorigin="anonymous"></component>
+        <!-- Kikitori 測驗頁廣告 -->
+        <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-8209950884395919"
+          data-ad-slot="8597565030"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+        <component :is="'script'">
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </component>
+        <!-- eslint-enable -->
       </div>
     </div>
   </div>
@@ -299,69 +315,3 @@ onMounted(() => {
   getSavedData()
 })
 </script>
-
-<style lang="scss">
-._custom {
-  .voc-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-
-    padding: 1rem 1.4rem;
-    background: var(--green);
-    border-radius: 1rem;
-    color: var(--white);
-    font-weight: bold;
-    line-height: 2;
-
-    @media (max-width: 991px) {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    @media (max-width: 767px) {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  .actions {
-    @media (max-width: 767px) {
-      button {
-        display: block;
-        width: 100%;
-        margin: 0.4rem 0;
-      }
-    }
-  }
-
-  .answers {
-    text-align: center;
-
-    .answer-head {
-      margin-bottom: 2rem;
-      font-weight: bold;
-    }
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid var(--primary);
-    text-align: center;
-
-    th {
-      background: var(--primary);
-    }
-
-    th, td {
-      padding: 0.4rem 1rem;
-      border: 1px solid var(--primary);
-    }
-  }
-
-  .result {
-    margin-top: 2rem;
-    color: var(--primary);
-    font-size: 2rem;
-    text-align: center;
-  }
-}
-</style>
