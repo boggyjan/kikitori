@@ -1,5 +1,5 @@
 <template>
-  <div class="_add">
+  <div class="main _add">
     <h2>
       新しい練習を作ろう！
     </h2>
@@ -62,7 +62,7 @@
             <button
               v-if="selectedIdx !== null"
               type="button"
-              class="outline"
+              class="outline secondary"
               @click="addNew()"
             >
               新しいのを作る
@@ -159,11 +159,12 @@ function remove (idx) {
   }
 }
 
+const pTitle = useState('pTitle')
+pTitle.value = '新しい練習を作ろう！'
 const metaTitle = '編集 - 聞き取りゲーム'
 const desc = '自分のテーマを編集'
 const url = 'https://kikitori.boggy.tw'
 const image = 'https://kikitori.boggy.tw/images/share.jpg'
-
 useHead({
   title: metaTitle,
   meta: [
@@ -205,10 +206,11 @@ onMounted(() => {
         grid-template-columns: 1fr auto;
         align-items: center;
         padding-left: 0.4rem;
+        border-radius: 0.4rem;
       }
 
       .active {
-        background: #fff2;
+        background: #e8fad5;
       }
 
       .actions {

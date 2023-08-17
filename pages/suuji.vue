@@ -1,5 +1,5 @@
 <template>
-  <div class="_suuji">
+  <div class="main _suuji">
     <div v-if="gameStatus !== 'playing'">
       <template v-if="gameStatus === 'end'">
         <h2>
@@ -64,7 +64,7 @@
         <h2>
           注意すべきところ
         </h2>
-        <ul>
+        <ul class="notice-list">
           <li>「300」は「さんびゃく」</li>
           <li>「600」は「ろっぴゃく」</li>
           <li>「800」は「はっぴゃく」</li>
@@ -77,14 +77,14 @@
       <hr>
 
       <div class="actions">
-        <div class="action-head">
+        <h2>
           <template v-if="gameStatus === null">
             始めましょう！
           </template>
           <template v-else>
             もう一度しましょう！
           </template>
-        </div>
+        </h2>
 
         <button
           type="button"
@@ -109,15 +109,15 @@
 
     <div v-else-if="gameStatus === 'playing'">
       <div class="answers">
-        <div class="answer-head">
+        <h3 class="answer-head">
           正しい答えを選んでください
-        </div>
+        </h3>
         <button
           v-for="(ans, idx) in answers"
           :key="`ans_${idx}`"
           type="button"
-          class="ans"
-          :class="{ active: answer === ans }"
+          class="tertiary ans"
+          :class="{ outline: answer !== ans }"
           @click="setAns(ans)"
         >
           {{ ans }}
@@ -129,7 +129,7 @@
       <div class="actions">
         <button
           type="button"
-          class="outline"
+          class="secondary outline"
           @click="replay()"
         >
           もう一度聞く
@@ -234,11 +234,12 @@ function speak (text, lv) {
   speechSynthesis.speak(utterance)
 }
 
+const pTitle = useState('pTitle')
+pTitle.value = '数字'
 const title = '数字 - 聞き取りゲーム'
 const desc = '数字に関する聞き取りゲームをやりましょう'
 const url = 'https://kikitori.boggy.tw'
 const image = 'https://kikitori.boggy.tw/images/share.jpg'
-
 useHead({
   title,
   meta: [
@@ -260,14 +261,16 @@ useHead({
 
 <style lang="scss">
 ._suuji {
+  .notice-list {
+    padding: 1rem 0 1rem 2.4rem;
+    background: var(--green);
+    border-radius: 1rem;
+    color: var(--white);
+    font-weight: bold;
+    line-height: 2;
+  }
+
   .actions {
-    text-align: center;
-
-    .action-head {
-      margin-bottom: 2rem;
-      font-weight: bold;
-    }
-
     @media (max-width: 767px) {
       button {
         display: block;
@@ -283,12 +286,6 @@ useHead({
     .answer-head {
       margin-bottom: 2rem;
       font-weight: bold;
-    }
-  }
-
-  .ans {
-    &.active {
-      border-color: #fff;
     }
   }
 

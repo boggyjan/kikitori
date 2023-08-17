@@ -1,5 +1,5 @@
 <template>
-  <div class="_custom">
+  <div class="main _custom">
     <div v-if="gameStatus !== 'playing'">
       <template v-if="gameStatus === 'end'">
         <h2>
@@ -79,14 +79,14 @@
       <hr>
 
       <div class="actions">
-        <div class="action-head">
+        <h2>
           <template v-if="gameStatus === null">
             始めましょう！
           </template>
           <template v-else>
             もう一度しましょう！
           </template>
-        </div>
+        </h2>
 
         <button
           type="button"
@@ -111,15 +111,15 @@
 
     <div v-else-if="gameStatus === 'playing'">
       <div class="answers">
-        <div class="answer-head">
+        <h3 class="answer-head">
           正しい答えを選んでください
-        </div>
+        </h3>
         <button
           v-for="(ans, idx) in answers"
           :key="`ans_${idx}`"
           type="button"
-          class="ans"
-          :class="{ active: answer === ans }"
+          class="tertiary ans"
+          :class="{ outline: answer !== ans }"
           @click="setAns(ans)"
         >
           {{ ans }}
@@ -131,7 +131,7 @@
       <div class="actions">
         <button
           type="button"
-          class="outline"
+          class="secondary outline"
           @click="replay()"
         >
           もう一度聞く
@@ -271,11 +271,12 @@ function speak (text, lv) {
   speechSynthesis.speak(utterance)
 }
 
+const pTitle = useState('pTitle')
+pTitle.value = route.params.name
 const metaTitle = route.params.name + ' - 聞き取りゲーム'
 const desc = route.params.name + 'に関する聞き取りゲームをやりましょう'
 const url = 'https://kikitori.boggy.tw'
 const image = 'https://kikitori.boggy.tw/images/share.jpg'
-
 useHead({
   title: metaTitle,
   meta: [
@@ -305,6 +306,13 @@ onMounted(() => {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 
+    padding: 1rem 1.4rem;
+    background: var(--green);
+    border-radius: 1rem;
+    color: var(--white);
+    font-weight: bold;
+    line-height: 2;
+
     @media (max-width: 991px) {
       grid-template-columns: 1fr 1fr 1fr;
     }
@@ -312,22 +320,9 @@ onMounted(() => {
     @media (max-width: 767px) {
       grid-template-columns: 1fr 1fr;
     }
-
-    a {
-      padding: 1rem;
-      border: 1px solid #fff2;
-      border-collapse: collapse;
-    }
   }
 
   .actions {
-    text-align: center;
-
-    .action-head {
-      margin-bottom: 2rem;
-      font-weight: bold;
-    }
-
     @media (max-width: 767px) {
       button {
         display: block;
@@ -343,12 +338,6 @@ onMounted(() => {
     .answer-head {
       margin-bottom: 2rem;
       font-weight: bold;
-    }
-  }
-
-  .ans {
-    &.active {
-      border-color: #fff;
     }
   }
 

@@ -1,21 +1,79 @@
 <template>
   <div class="site-header">
-    <NuxtLink to="/">
-      聞き取りゲーム
-    </NuxtLink>
+    <div class="header-bar">
+      <div>
+        <NuxtLink
+          to="/"
+          class="home-link"
+        >
+          聞き取り<em>ゲーム</em>
+        </NuxtLink>
+
+        <span
+          v-if="pTitle"
+          class="sub-title"
+        >
+          {{ pTitle }}
+        </span>
+      </div>
+
+      <NuxtLink
+        v-if="pTitle"
+        to="/"
+        class="back-btn"
+      >
+        戻る
+      </NuxtLink>
+    </div>
   </div>
 </template>
+
+<script setup>
+const pTitle = useState('pTitle')
+</script>
 
 <style lang="scss">
 .site-header {
   position: sticky;
   top: 0;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  padding: 1rem 1.8rem;
-  background: #ffffff09;
+  z-index: 1;
+  background: #fff;
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid #fff1;
+  box-shadow: 0 0 20px #0683;
+
+  &:after {
+    content: '';
+    display: block;
+    height: 3px;
+    background-image: linear-gradient(90deg, var(--primary), var(--secondary));
+  }
+
+  .header-bar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 1rem 1.8rem;
+
+    .home-link {
+      font-size: 1.4rem;
+      font-style: italic;
+      font-weight: bold;
+      color: var(--primary);
+
+      em {
+        color: var(--secondary);
+      }
+    }
+
+    .sub-title {
+      display: inline-block;
+      margin-left: 1rem;
+      padding-left: 1rem;
+      border-left: 1px solid #aaa;
+      color: #aaa;
+      line-height: 1;
+    }
+  }
 
   a {
     text-decoration: none;
@@ -23,6 +81,9 @@
     &:hover {
       text-decoration: initial;
     }
+  }
+
+  .back-btn {
   }
 }
 </style>
