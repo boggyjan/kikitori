@@ -1,4 +1,4 @@
-import { hasInjectionContext, inject, version, getCurrentInstance, ref, watchEffect, watch, useSSRContext, createApp, reactive, unref, provide, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, toRef, shallowRef, shallowReactive, isReadonly, defineAsyncComponent, isRef, isShallow, isReactive, toRaw, withCtx, mergeProps, nextTick, defineComponent, computed, h, Suspense, Transition } from 'vue';
+import { toRef, isRef, hasInjectionContext, inject, version, getCurrentInstance, ref, watchEffect, watch, useSSRContext, createApp, reactive, unref, provide, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, shallowRef, shallowReactive, isReadonly, defineAsyncComponent, isShallow, isReactive, toRaw, withCtx, mergeProps, nextTick, defineComponent, computed, h, Suspense, Transition } from 'vue';
 import { $fetch } from 'ofetch';
 import { createHooks } from 'hookable';
 import { getContext, executeAsync } from 'unctx';
@@ -320,7 +320,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/_name_-74bc2b56.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/_name_-c174307b.mjs').then((m) => m.default || m)
   },
   {
     name: "add",
@@ -328,7 +328,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/add-efe96cc5.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/add-27dc6f50.mjs').then((m) => m.default || m)
   },
   {
     name: "index",
@@ -336,15 +336,15 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-bbb446d2.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-bd10c14f.mjs').then((m) => m.default || m)
   },
   {
-    name: "jikan",
-    path: "/jikan",
+    name: "jikoku",
+    path: "/jikoku",
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/jikan-6fb321d9.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/jikoku-2b61f523.mjs').then((m) => m.default || m)
   },
   {
     name: "suuji",
@@ -352,7 +352,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/suuji-18fea185.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/suuji-7481c276.mjs').then((m) => m.default || m)
   }
 ];
 const appHead = { "meta": [{ "name": "viewport", "content": "width=device-width, initial-scale=1" }, { "charset": "utf-8" }], "link": [], "style": [], "script": [], "noscript": [] };
@@ -732,7 +732,7 @@ const _wrapIf = (component, props, slots) => {
   } };
 };
 const layouts = {
-  default: () => import('./_nuxt/default-e87a30b4.mjs').then((m) => m.default || m)
+  default: () => import('./_nuxt/default-801b6453.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = /* @__PURE__ */ defineComponent({
   name: "LayoutLoader",
@@ -1097,5 +1097,5 @@ let entry;
 }
 const entry$1 = (ctx) => entry(ctx);
 
-export { _export_sfc as _, useRoute as a, useRouter as b, createError as c, entry$1 as default, navigateTo as n, useHead as u };
+export { _export_sfc as _, useRoute as a, useRouter as b, createError as c, useState as d, entry$1 as default, navigateTo as n, useHead as u };
 //# sourceMappingURL=server.mjs.map
