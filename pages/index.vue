@@ -19,6 +19,9 @@
     </div>
 
     <div class="main">
+      <FailToSupportSpeechApi />
+      <NoJpVoiceFound />
+
       <h2>
         練習テーマ
       </h2>
@@ -68,12 +71,28 @@
       </div>
 
       <hr>
+
       <h2>
         「聞き取りゲーム」について
       </h2>
       <p>
-        聞き取りゲームは「Web Speech API」という技術を活用したWebアプリケーションです。上の「時間」や「数字」などが練習のテーマです。まずは一つリンクをクリックして、練習しましょう。他のテーマを練習したい場合、「+ テーマ」をクリックして、自分のテーマを作ってください。
+        聞き取りゲームは「Web Synthesis API」という技術を活用したWebアプリケーションです。下記の「時間」や「数字」などが練習のテーマです。まずは一つリンクをクリックして、練習しましょう。他のテーマを練習したい場合、「+ テーマ」をクリックして、自分のテーマを作ってください。
       </p>
+
+      <hr>
+
+      <h2>FAQ</h2>
+      <h3>If you can't hear the sound</h3>
+      <ol>
+        <li>iOS users please go to "Settings -> Accessibility -> Spoken content -> Voices -> Japanese" to download the voice data.</li>
+        <li>Android users please go to "Settings -> Accessbility -> Text-to-speech output -> Setting Icon next to "Preferred engine" -> Install voice data" to download Japanese voice data and restart your browser.</li>
+      </ol>
+
+      <h3>若是無法聽見聲音</h3>
+      <ol>
+        <li>iOS的使用者請至「設定 -> 輔助使用 -> 語音內容 -> 聲音 -> 日文」下載日文語音檔。</li>
+        <li>Android的使用者請至「設定 -> 協助工具 -> 文字轉語音輸出 -> 點選偏好的引擎右方的設定按鈕 -> 安裝語音資料」下載日文語音檔，並重新啟動瀏覽器。</li>
+      </ol>
     </div>
   </div>
 </template>

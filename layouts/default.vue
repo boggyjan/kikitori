@@ -26,8 +26,18 @@
 
 <script setup>
 const lsName = 'saved_tests'
+const failToSupportSpeechApi = useState('failToSupportSpeechApi')
 
-if (!process.server) {
+onMounted(() => {
+  if (!window.SpeechSynthesisUtterance || !window.speechSynthesis) {
+    failToSupportSpeechApi.value = true
+  }
+  // failToSupportSpeechApi.value = true
+
+  // fix android bug
+  // 先getVoices一次，這樣android才能在點取遊戲時可以馬上取得voices
+  speechSynthesis.getVoices()
+
   const tests = JSON.parse(localStorage.getItem(lsName) || '[]')
 
   if (!tests.length) {
@@ -55,7 +65,7 @@ if (!process.server) {
     findWrongData2.questions = ["祖父","そう祖父","祖母","そう祖母","父","母","兄","姉","弟","妹","夫","妻","息子","娘","叔母さん","叔父さん"]
     localStorage.setItem(lsName, JSON.stringify(tests))
   }
-}
+})
 </script>
 
 <style lang="scss">
@@ -70,8 +80,8 @@ if (!process.server) {
   --blue: #29b0c3;
   --textfield-border-color: #654;
   --textfield-focus-border-color: #789;
-  --alert-border: #7899;
-  --alert-bg: #5679;
+  --alert-border: #ffa09c;
+  --alert-bg: #ffd2d0;
   --carousel-pagination: var(--green);
 }
 
@@ -255,6 +265,10 @@ table {
   border: 1px solid var(--alert-border);
   border-radius: 0.4rem;
   background: var(--alert-bg);
+
+  .title {
+    font-weight: bold;
+  }
 }
 
 .layout {
