@@ -1,5 +1,8 @@
 <template>
   <div class="main _test _suuji">
+    <FailToSupportSpeechApi />
+    <NoJpVoiceFound />
+
     <div v-if="gameStatus !== 'playing'">
       <template v-if="gameStatus === 'end'">
         <h2>
@@ -216,6 +219,15 @@ function genNumber () {
 }
 
 function speak (text, lv) {
+  const voices = speechSynthesis.getVoices().filter(item => item.lang === 'ja_JP' || item.lang === 'ja-JP' || item.lang === 'ja')
+
+  if (!voices.length) {
+    alert('Japanese voice data not found.')
+    const noJpVoiceFound = useState('noJpVoiceFound')
+    noJpVoiceFound.value = true
+    window.scrollTo(0, 0)
+  }
+
   const utterance = new SpeechSynthesisUtterance(text)
   // 0.1~1 適合 // 0.1-10 max
   const rate = lv === 1
@@ -226,11 +238,14 @@ function speak (text, lv) {
         ? Math.random() * 0.5 + 1
         : 0.1
   // 0~1.5 適合// 0~2 max
-  const pitch = Math.random() * 1.5
+  const pitch = Math.random() * 1 + 0.5
   utterance.lang = 'ja-JP'
   utterance.rate = rate
   utterance.pitch = pitch
-  utterance.volume = 1
+  // utterance.volume = 100
+  utterance.voice = voices[Math.floor(Math.random() * voices.length)]
+
+  speechSynthesis.cancel()
   speechSynthesis.speak(utterance)
 }
 
