@@ -2,8 +2,10 @@
 declare module 'vue' {
   export interface GlobalComponents {
     'Carousel': typeof import("../components/Carousel.vue")['default']
+    'FailToSupportSpeechApi': typeof import("../components/FailToSupportSpeechApi.vue")['default']
     'Footer': typeof import("../components/Footer.vue")['default']
     'Header': typeof import("../components/Header.vue")['default']
+    'NoJpVoiceFound': typeof import("../components/NoJpVoiceFound.vue")['default']
     'NuxtWelcome': typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
     'NuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/layout")['default']
     'NuxtErrorBoundary': typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']
@@ -23,8 +25,10 @@ declare module 'vue' {
     'Html': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'LazyCarousel': typeof import("../components/Carousel.vue")['default']
+    'LazyFailToSupportSpeechApi': typeof import("../components/FailToSupportSpeechApi.vue")['default']
     'LazyFooter': typeof import("../components/Footer.vue")['default']
     'LazyHeader': typeof import("../components/Header.vue")['default']
+    'LazyNoJpVoiceFound': typeof import("../components/NoJpVoiceFound.vue")['default']
     'LazyNuxtWelcome': typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
     'LazyNuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/layout")['default']
     'LazyNuxtErrorBoundary': typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']
@@ -47,8 +51,10 @@ declare module 'vue' {
 }
 
 export const Carousel: typeof import("../components/Carousel.vue")['default']
+export const FailToSupportSpeechApi: typeof import("../components/FailToSupportSpeechApi.vue")['default']
 export const Footer: typeof import("../components/Footer.vue")['default']
 export const Header: typeof import("../components/Header.vue")['default']
+export const NoJpVoiceFound: typeof import("../components/NoJpVoiceFound.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
 export const NuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/layout")['default']
 export const NuxtErrorBoundary: typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']
@@ -68,8 +74,10 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const LazyCarousel: typeof import("../components/Carousel.vue")['default']
+export const LazyFailToSupportSpeechApi: typeof import("../components/FailToSupportSpeechApi.vue")['default']
 export const LazyFooter: typeof import("../components/Footer.vue")['default']
 export const LazyHeader: typeof import("../components/Header.vue")['default']
+export const LazyNoJpVoiceFound: typeof import("../components/NoJpVoiceFound.vue")['default']
 export const LazyNuxtWelcome: typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
 export const LazyNuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/layout")['default']
 export const LazyNuxtErrorBoundary: typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']

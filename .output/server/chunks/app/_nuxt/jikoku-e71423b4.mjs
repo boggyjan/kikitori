@@ -1,6 +1,7 @@
+import { _ as __nuxt_component_0, a as __nuxt_component_1 } from './NoJpVoiceFound-9ced8f2c.mjs';
 import { ref, computed, mergeProps, unref, useSSRContext } from 'vue';
 import { d as useState, u as useHead } from '../server.mjs';
-import { ssrRenderAttrs, ssrInterpolate, ssrRenderList, ssrRenderClass, ssrIncludeBooleanAttr } from 'vue/server-renderer';
+import { ssrRenderAttrs, ssrRenderComponent, ssrInterpolate, ssrRenderList, ssrRenderClass, ssrIncludeBooleanAttr } from 'vue/server-renderer';
 import 'ofetch';
 import 'hookable';
 import 'unctx';
@@ -63,7 +64,11 @@ const _sfc_main = {
       ]
     });
     return (_ctx, _push, _parent, _attrs) => {
+      const _component_FailToSupportSpeechApi = __nuxt_component_0;
+      const _component_NoJpVoiceFound = __nuxt_component_1;
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "main _test _jikan" }, _attrs))}>`);
+      _push(ssrRenderComponent(_component_FailToSupportSpeechApi, null, null, _parent));
+      _push(ssrRenderComponent(_component_NoJpVoiceFound, null, null, _parent));
       if (unref(gameStatus) !== "playing") {
         _push(`<div>`);
         if (unref(gameStatus) === "end") {
@@ -115,4 +120,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=jikoku-ee1876b5.mjs.map
+//# sourceMappingURL=jikoku-e71423b4.mjs.map

@@ -1,7 +1,8 @@
 import { ref, mergeProps, withCtx, openBlock, createBlock, Fragment, renderList, createVNode, createTextVNode, unref, toDisplayString, resolveDynamicComponent, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderList, ssrRenderAttr, ssrInterpolate, ssrRenderVNode, ssrRenderStyle, ssrRenderClass, ssrRenderSlot } from 'vue/server-renderer';
 import { d as useState, u as useHead, _ as _export_sfc } from '../server.mjs';
-import { _ as __nuxt_component_0$1 } from './nuxt-link-563b35af.mjs';
+import { _ as __nuxt_component_0$1, a as __nuxt_component_1 } from './NoJpVoiceFound-9ced8f2c.mjs';
+import { _ as __nuxt_component_0$2 } from './nuxt-link-563b35af.mjs';
 import 'ofetch';
 import 'hookable';
 import 'unctx';
@@ -457,7 +458,9 @@ const _sfc_main = {
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_Carousel = __nuxt_component_0;
-      const _component_NuxtLink = __nuxt_component_0$1;
+      const _component_FailToSupportSpeechApi = __nuxt_component_0$1;
+      const _component_NoJpVoiceFound = __nuxt_component_1;
+      const _component_NuxtLink = __nuxt_component_0$2;
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "_index" }, _attrs))}><div class="banners">`);
       _push(ssrRenderComponent(_component_Carousel, {
         items: 1,
@@ -488,7 +491,10 @@ const _sfc_main = {
         }),
         _: 1
       }, _parent));
-      _push(`</div><div class="main"><h2> \u7DF4\u7FD2\u30C6\u30FC\u30DE </h2><nav class="main-menu">`);
+      _push(`</div><div class="main">`);
+      _push(ssrRenderComponent(_component_FailToSupportSpeechApi, null, null, _parent));
+      _push(ssrRenderComponent(_component_NoJpVoiceFound, null, null, _parent));
+      _push(`<h2> \u7DF4\u7FD2\u30C6\u30FC\u30DE </h2><nav class="main-menu">`);
       _push(ssrRenderComponent(_component_NuxtLink, {
         to: "/jikoku",
         class: "btn"
@@ -573,7 +579,7 @@ const _sfc_main = {
         }),
         _: 1
       }), _parent);
-      _push(`</div><hr><h2> \u300C\u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0\u300D\u306B\u3064\u3044\u3066 </h2><p> \u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0\u306F\u300CWeb Speech API\u300D\u3068\u3044\u3046\u6280\u8853\u3092\u6D3B\u7528\u3057\u305FWeb\u30A2\u30D7\u30EA\u30B1\u30FC\u30B7\u30E7\u30F3\u3067\u3059\u3002\u4E0A\u306E\u300C\u6642\u9593\u300D\u3084\u300C\u6570\u5B57\u300D\u306A\u3069\u304C\u7DF4\u7FD2\u306E\u30C6\u30FC\u30DE\u3067\u3059\u3002\u307E\u305A\u306F\u4E00\u3064\u30EA\u30F3\u30AF\u3092\u30AF\u30EA\u30C3\u30AF\u3057\u3066\u3001\u7DF4\u7FD2\u3057\u307E\u3057\u3087\u3046\u3002\u4ED6\u306E\u30C6\u30FC\u30DE\u3092\u7DF4\u7FD2\u3057\u305F\u3044\u5834\u5408\u3001\u300C+ \u30C6\u30FC\u30DE\u300D\u3092\u30AF\u30EA\u30C3\u30AF\u3057\u3066\u3001\u81EA\u5206\u306E\u30C6\u30FC\u30DE\u3092\u4F5C\u3063\u3066\u304F\u3060\u3055\u3044\u3002 </p></div></div>`);
+      _push(`</div><hr><h2> \u300C\u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0\u300D\u306B\u3064\u3044\u3066 </h2><p> \u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0\u306F\u300CWeb Synthesis API\u300D\u3068\u3044\u3046\u6280\u8853\u3092\u6D3B\u7528\u3057\u305FWeb\u30A2\u30D7\u30EA\u30B1\u30FC\u30B7\u30E7\u30F3\u3067\u3059\u3002\u4E0B\u8A18\u306E\u300C\u6642\u9593\u300D\u3084\u300C\u6570\u5B57\u300D\u306A\u3069\u304C\u7DF4\u7FD2\u306E\u30C6\u30FC\u30DE\u3067\u3059\u3002\u307E\u305A\u306F\u4E00\u3064\u30EA\u30F3\u30AF\u3092\u30AF\u30EA\u30C3\u30AF\u3057\u3066\u3001\u7DF4\u7FD2\u3057\u307E\u3057\u3087\u3046\u3002\u4ED6\u306E\u30C6\u30FC\u30DE\u3092\u7DF4\u7FD2\u3057\u305F\u3044\u5834\u5408\u3001\u300C+ \u30C6\u30FC\u30DE\u300D\u3092\u30AF\u30EA\u30C3\u30AF\u3057\u3066\u3001\u81EA\u5206\u306E\u30C6\u30FC\u30DE\u3092\u4F5C\u3063\u3066\u304F\u3060\u3055\u3044\u3002 </p><hr><h2>FAQ</h2><h3>If you can&#39;t hear the sound</h3><ol><li>iOS users please go to &quot;Settings -&gt; Accessibility -&gt; Spoken content -&gt; Voices -&gt; Japanese&quot; to download the voice data.</li><li>Android users please go to &quot;Settings -&gt; Accessbility -&gt; Text-to-speech output -&gt; Setting Icon next to &quot;Preferred engine&quot; -&gt; Install voice data&quot; to download Japanese voice data and restart your browser.</li></ol><h3>\u82E5\u662F\u7121\u6CD5\u807D\u898B\u8072\u97F3</h3><ol><li>iOS\u7684\u4F7F\u7528\u8005\u8ACB\u81F3\u300C\u8A2D\u5B9A -&gt; \u8F14\u52A9\u4F7F\u7528 -&gt; \u8A9E\u97F3\u5167\u5BB9 -&gt; \u8072\u97F3 -&gt; \u65E5\u6587\u300D\u4E0B\u8F09\u65E5\u6587\u8A9E\u97F3\u6A94\u3002</li><li>Android\u7684\u4F7F\u7528\u8005\u8ACB\u81F3\u300C\u8A2D\u5B9A -&gt; \u5354\u52A9\u5DE5\u5177 -&gt; \u6587\u5B57\u8F49\u8A9E\u97F3\u8F38\u51FA -&gt; \u9EDE\u9078\u504F\u597D\u7684\u5F15\u64CE\u53F3\u65B9\u7684\u8A2D\u5B9A\u6309\u9215 -&gt; \u5B89\u88DD\u8A9E\u97F3\u8CC7\u6599\u300D\u4E0B\u8F09\u65E5\u6587\u8A9E\u97F3\u6A94\uFF0C\u4E26\u91CD\u65B0\u555F\u52D5\u700F\u89BD\u5668\u3002</li></ol></div></div>`);
     };
   }
 };
@@ -585,4 +591,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=index-3907a359.mjs.map
+//# sourceMappingURL=index-79ef1ffb.mjs.map

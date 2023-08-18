@@ -125,6 +125,7 @@ const _sfc_main = {
   __name: "default",
   __ssrInlineRender: true,
   setup(__props) {
+    useState("failToSupportSpeechApi");
     return (_ctx, _push, _parent, _attrs) => {
       const _component_client_only = __nuxt_component_0;
       const _component_Header = __nuxt_component_1;
@@ -147,4 +148,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=default-1e49a88e.mjs.map
+//# sourceMappingURL=default-0e358c8d.mjs.map
