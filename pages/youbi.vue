@@ -271,9 +271,9 @@ function speak (text, lv) {
 }
 
 const pTitle = useState('pTitle')
-pTitle.value = '日付'
-const title = '日付 - 聞き取りゲーム'
-const desc = '日付に関する聞き取りゲームをやりましょう'
+pTitle.value = '曜日'
+const title = '曜日 - 聞き取りゲーム'
+const desc = '曜日に関する聞き取りゲームをやりましょう'
 const url = 'https://kikitori.boggy.tw'
 const image = 'https://kikitori.boggy.tw/images/share.jpg'
 useHead({
