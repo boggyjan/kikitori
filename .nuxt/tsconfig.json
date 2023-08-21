@@ -9,7 +9,7 @@
     "skipLibCheck": true,
     "strict": true,
     "allowJs": true,
-    "baseUrl": "/var/www/kikitori.boggy.tw",
+    "baseUrl": "/home/runner/work/kikitori/kikitori",
     "noEmit": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
@@ -18,61 +18,61 @@
     ],
     "paths": {
       "~": [
-        "/var/www/kikitori.boggy.tw"
+        "/home/runner/work/kikitori/kikitori"
       ],
       "~/*": [
-        "/var/www/kikitori.boggy.tw/*"
+        "/home/runner/work/kikitori/kikitori/*"
       ],
       "@": [
-        "/var/www/kikitori.boggy.tw"
+        "/home/runner/work/kikitori/kikitori"
       ],
       "@/*": [
-        "/var/www/kikitori.boggy.tw/*"
+        "/home/runner/work/kikitori/kikitori/*"
       ],
       "~~": [
-        "/var/www/kikitori.boggy.tw"
+        "/home/runner/work/kikitori/kikitori"
       ],
       "~~/*": [
-        "/var/www/kikitori.boggy.tw/*"
+        "/home/runner/work/kikitori/kikitori/*"
       ],
       "@@": [
-        "/var/www/kikitori.boggy.tw"
+        "/home/runner/work/kikitori/kikitori"
       ],
       "@@/*": [
-        "/var/www/kikitori.boggy.tw/*"
+        "/home/runner/work/kikitori/kikitori/*"
       ],
       "assets": [
-        "/var/www/kikitori.boggy.tw/assets"
+        "/home/runner/work/kikitori/kikitori/assets"
       ],
       "public": [
-        "/var/www/kikitori.boggy.tw/public"
+        "/home/runner/work/kikitori/kikitori/public"
       ],
       "public/*": [
-        "/var/www/kikitori.boggy.tw/public/*"
+        "/home/runner/work/kikitori/kikitori/public/*"
       ],
       "#app": [
-        "/var/www/kikitori.boggy.tw/node_modules/nuxt/dist/app"
+        "/home/runner/work/kikitori/kikitori/node_modules/nuxt/dist/app"
       ],
       "#app/*": [
-        "/var/www/kikitori.boggy.tw/node_modules/nuxt/dist/app/*"
+        "/home/runner/work/kikitori/kikitori/node_modules/nuxt/dist/app/*"
       ],
       "vue-demi": [
-        "/var/www/kikitori.boggy.tw/node_modules/nuxt/dist/app/compat/vue-demi"
+        "/home/runner/work/kikitori/kikitori/node_modules/nuxt/dist/app/compat/vue-demi"
       ],
       "#vue-router": [
-        "/var/www/kikitori.boggy.tw/.nuxt/vue-router"
+        "/home/runner/work/kikitori/kikitori/.nuxt/vue-router"
       ],
       "#imports": [
-        "/var/www/kikitori.boggy.tw/.nuxt/imports"
+        "/home/runner/work/kikitori/kikitori/.nuxt/imports"
       ],
       "#build": [
-        "/var/www/kikitori.boggy.tw/.nuxt"
+        "/home/runner/work/kikitori/kikitori/.nuxt"
       ],
       "#build/*": [
-        "/var/www/kikitori.boggy.tw/.nuxt/*"
+        "/home/runner/work/kikitori/kikitori/.nuxt/*"
       ],
       "#components": [
-        "/var/www/kikitori.boggy.tw/.nuxt/components"
+        "/home/runner/work/kikitori/kikitori/.nuxt/components"
       ]
     }
   },
@@ -80,14 +80,14 @@
     "./nuxt.d.ts",
     "../**/*",
     "../**/*",
-    "/var/www/kikitori.boggy.tw",
-    "/var/www/kikitori.boggy.tw/*",
-    "/var/www/kikitori.boggy.tw",
-    "/var/www/kikitori.boggy.tw/*",
-    "/var/www/kikitori.boggy.tw",
-    "/var/www/kikitori.boggy.tw/*",
-    "/var/www/kikitori.boggy.tw",
-    "/var/www/kikitori.boggy.tw/*"
+    "/home/runner/work/kikitori/kikitori",
+    "/home/runner/work/kikitori/kikitori/*",
+    "/home/runner/work/kikitori/kikitori",
+    "/home/runner/work/kikitori/kikitori/*",
+    "/home/runner/work/kikitori/kikitori",
+    "/home/runner/work/kikitori/kikitori/*",
+    "/home/runner/work/kikitori/kikitori",
+    "/home/runner/work/kikitori/kikitori/*"
   ],
   "exclude": [
     "../dist",

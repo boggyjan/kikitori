@@ -28,8 +28,8 @@ import 'node:url';
 import 'pathe';
 import 'http-graceful-shutdown';
 
-const title = "\u65E5\u4ED8 - \u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0";
-const desc = "\u65E5\u4ED8\u306B\u95A2\u3059\u308B\u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0\u3092\u3084\u308A\u307E\u3057\u3087\u3046";
+const title = "\u66DC\u65E5 - \u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0";
+const desc = "\u66DC\u65E5\u306B\u95A2\u3059\u308B\u805E\u304D\u53D6\u308A\u30B2\u30FC\u30E0\u3092\u3084\u308A\u307E\u3057\u3087\u3046";
 const url = "https://kikitori.boggy.tw";
 const image = "https://kikitori.boggy.tw/images/share.jpg";
 const _sfc_main = {
@@ -46,7 +46,7 @@ const _sfc_main = {
     const questionHistory = ref([]);
     const rightPercent = computed(() => Math.floor(questionHistory.value.filter((q) => q.question === q.answer).length / questionHistory.value.length * 100));
     const pTitle = useState("pTitle");
-    pTitle.value = "\u65E5\u4ED8";
+    pTitle.value = "\u66DC\u65E5";
     useHead({
       title,
       meta: [
@@ -121,4 +121,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=youbi-f9ac29d1.mjs.map
+//# sourceMappingURL=youbi-1901df6c.mjs.map
