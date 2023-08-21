@@ -195,7 +195,7 @@ function next () {
   } else {
     count.value++
 
-    const jikann = ['さきおととい', 'おととい', '昨日', '今日', '明日', 'あさって', 'しあさって']
+    const jikann = ['先一昨日', 'おととい', '昨日', '今日', '明日', 'あさって', 'しあさって']
     const day = ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日']
 
     const begin = Math.floor(Math.random() * 7)
@@ -227,7 +227,7 @@ function next () {
     newAnswers.push(days[1])
     newAnswers.push(days[2])
     newAnswers.sort(() => Math.random() - 0.5)
-    console.log(days)
+    // console.log(days)
 
     answers.value = newAnswers
     answer.value = null
