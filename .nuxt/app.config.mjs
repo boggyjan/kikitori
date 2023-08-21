@@ -1,5 +1,5 @@
 
-import { defuFn } from '/home/runner/work/kikitori/kikitori/node_modules/defu/dist/defu.mjs'
+import { defuFn } from '/var/www/kikitori.boggy.tw/node_modules/defu/dist/defu.mjs'
 
 const inlineConfig = {}
 

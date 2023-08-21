@@ -12,48 +12,48 @@
     "jsxFragmentFactory": "Fragment",
     "paths": {
       "#imports": [
-        "/home/runner/work/kikitori/kikitori/.nuxt/types/nitro-imports"
+        "/var/www/kikitori.boggy.tw/.nuxt/types/nitro-imports"
       ],
       "#paths": [
-        "/home/runner/work/kikitori/kikitori/node_modules/nuxt/dist/core/runtime/nitro/paths"
+        "/var/www/kikitori.boggy.tw/node_modules/nuxt/dist/core/runtime/nitro/paths"
       ],
       "~": [
-        "/home/runner/work/kikitori/kikitori"
+        "/var/www/kikitori.boggy.tw"
       ],
       "~/*": [
-        "/home/runner/work/kikitori/kikitori/*"
+        "/var/www/kikitori.boggy.tw/*"
       ],
       "@": [
-        "/home/runner/work/kikitori/kikitori"
+        "/var/www/kikitori.boggy.tw"
       ],
       "@/*": [
-        "/home/runner/work/kikitori/kikitori/*"
+        "/var/www/kikitori.boggy.tw/*"
       ],
       "~~": [
-        "/home/runner/work/kikitori/kikitori"
+        "/var/www/kikitori.boggy.tw"
       ],
       "~~/*": [
-        "/home/runner/work/kikitori/kikitori/*"
+        "/var/www/kikitori.boggy.tw/*"
       ],
       "@@": [
-        "/home/runner/work/kikitori/kikitori"
+        "/var/www/kikitori.boggy.tw"
       ],
       "@@/*": [
-        "/home/runner/work/kikitori/kikitori/*"
+        "/var/www/kikitori.boggy.tw/*"
       ],
       "assets": [
-        "/home/runner/work/kikitori/kikitori/assets"
+        "/var/www/kikitori.boggy.tw/assets"
       ],
       "public": [
-        "/home/runner/work/kikitori/kikitori/public"
+        "/var/www/kikitori.boggy.tw/public"
       ],
       "public/*": [
-        "/home/runner/work/kikitori/kikitori/public/*"
+        "/var/www/kikitori.boggy.tw/public/*"
       ]
     }
   },
   "include": [
-    "/home/runner/work/kikitori/kikitori/.nuxt/types/nitro-nuxt.d.ts",
+    "/var/www/kikitori.boggy.tw/.nuxt/types/nitro-nuxt.d.ts",
     "./types/nitro.d.ts",
     "../**/*",
     "../server/**/*"
