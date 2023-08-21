@@ -27,6 +27,18 @@
       </h2>
       <nav class="main-menu">
         <NuxtLink
+          to="/hiduke"
+          class="btn"
+        >
+          日付
+        </NuxtLink>
+        <NuxtLink
+          to="/youbi"
+          class="btn"
+        >
+          曜日
+        </NuxtLink>
+        <NuxtLink
           to="/jikoku"
           class="btn"
         >
