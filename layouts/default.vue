@@ -42,7 +42,7 @@ onMounted(() => {
 
   if (!tests.length) {
     /* eslint-disable */
-    const sampleData = [{"title":"家族","questions":["祖父","そう祖父","祖母","そう祖母","父","母","兄","姉","弟","妹","夫","妻","息子","娘","叔母さん","叔父さん"]},{"title":"時間","questions":["今年","来年","再来年","去年","昨年","前年","今月","来月","再来月","先月","先先月","今週","来週","再来週","先週","先先週","今日","あした","あす","あさって","しあさって","昨日","一昨日","先一昨日"]}]
+    const sampleData = [{"title":"家族","questions":["祖父","そう祖父","祖母","そう祖母","父","母","兄","姉","弟","妹","夫","妻","息子","娘","叔母さん","叔父さん"]},{"title":"時間","questions":["今年","来年","再来年","去年","昨年","前年","今月","来月","再来月","先月","先先月","今週","来週","再来週","先週","先先週","今日","あした","あす","あさって","しあさって","昨日","一昨日","先一昨日","月曜日","火曜日","水曜日","木曜日","金曜日","土曜日","日曜日"]}]
     /* eslint-enable */
     localStorage.setItem(lsName, JSON.stringify(sampleData))
   }
@@ -237,13 +237,13 @@ table {
 
   th, td {
     padding: 0.8rem 1rem;
-    border-right: 1px solid var(--green);
-    border-bottom: 1px solid var(--green);
+    border-right: 3px solid var(--green);
+    border-bottom: 3px solid var(--green);
   }
 
   th:first-child,
   td:first-child {
-    border-left: 1px solid var(--green);
+    border-left: 3px solid var(--green);
   }
 
   tbody tr:last-child {

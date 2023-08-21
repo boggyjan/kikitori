@@ -6,7 +6,7 @@
     <div v-if="gameStatus !== 'playing'">
       <template v-if="gameStatus === 'end'">
         <h2>
-          時刻 レベル{{ level }}の 練習結果
+          日付 レベル{{ level }}の 練習結果
         </h2>
         <table>
           <thead>
@@ -68,14 +68,27 @@
           注意すべきところ
         </h2>
         <ul class="notice-list">
-          <li>「1分」は「いっぷん」</li>
-          <li>「3分」は「さんぷん、さんふん」</li>
-          <li>「4分」は「よんぷん、よんふん」</li>
-          <li>「4時」は「よじ」</li>
-          <li>「6分」は「ろっぷん」</li>
-          <li>「7分」は「ななふん」</li>
-          <li>「8分」は「はっぷん、はちふん」</li>
-          <li>「10分」は「じゅっぷん」</li>
+          <li>「1日」は「ついたち」</li>
+          <li>「2日」は「ふつか」</li>
+          <li>「3日」は「みっか」</li>
+          <li>「4日」は「よっか」</li>
+          <li>「5日」は「いつか」</li>
+          <li>「6日」は「むいか」</li>
+          <li>「7日」は「なのか」</li>
+          <li>「8日」は「ようか」</li>
+          <li>「9日」は「ここのか」</li>
+          <li>「10日」は「とおか」</li>
+          <li>「11日」は「じゅういちにち」</li>
+          <li>「12日」は「じゅうににち」</li>
+          <li>「13日」は「じゅうさんにち」</li>
+          <li>「14日」は「じゅうよんにち」</li>
+          <li>「15日」は「じゅうごにち」</li>
+          <li>「16日」は「じゅうろくにち」</li>
+          <li>「17日」は「じゅうしちにち／じゅうななにち」</li>
+          <li>「18日」は「じゅうはちにち」</li>
+          <li>「19日」は「じゅうくにち」</li>
+          <li>「20日」は「はつか」</li>
+          <li>「21日」は「にじゅういちにち」</li>
         </ul>
       </template>
 
@@ -194,7 +207,7 @@ function next () {
   } else {
     count.value++
 
-    const time = genTime()
+    const time = genDate()
 
     question.value = time
 
@@ -202,11 +215,9 @@ function next () {
     newAnswers.push(question.value)
 
     for (let i = 0; i < 3; i++) {
-      const data = time.split(/時|分/g).map(item => parseInt(item))
-      const changeHour = Math.random() > 0.7
-      const hours = changeHour ? randomBut(24, data[0]) : data[0]
-      const minutes = changeHour ? data[1] : randomBut(60, data[1])
-      newAnswers.push(hours + '時' + minutes + '分')
+      const data = time.split(/月|日/g).map(item => parseInt(item))
+      const nearDate = getNearDateBy(data[0] - 1, data[1], newAnswers)
+      newAnswers.push(nearDate)
     }
 
     newAnswers.sort(() => Math.random() - 0.5)
@@ -217,24 +228,32 @@ function next () {
   }
 }
 
-function randomBut (r, b) {
-  let num = b
-
-  while (num === b) {
-    num = Math.floor(Math.random() * r)
+function getNearDateBy (m, d, but) {
+  const dd = new Date()
+  dd.setMonth(m)
+  dd.setDate(d)
+  let result = (m + 1) + '月' + d + '日'
+  
+  while (but.includes(result)) {
+    const diff = (Math.random() - 0.5) * 1728000000
+    const t = new Date(dd.getTime() - diff)
+    const month = t.getMonth() + 1
+    const date = t.getDate()
+    result = month + '月' + date + '日'
   }
 
-  return num
+  return result
 }
 
 function replay () {
   speak(question.value, level.value)
 }
 
-function genTime () {
-  const hours = Math.floor(Math.random() * 24)
-  const minutes = Math.floor(Math.random() * 60)
-  return hours + '時' + minutes + '分'
+function genDate () {
+  const time = new Date().getTime() - Math.random() * 31536000000
+  const month = new Date(time).getMonth() + 1
+  const date = new Date(time).getDate()
+  return month + '月' + date + '日'
 }
 
 function speak (text, lv) {
@@ -269,9 +288,9 @@ function speak (text, lv) {
 }
 
 const pTitle = useState('pTitle')
-pTitle.value = '時刻'
-const title = '時刻 - 聞き取りゲーム'
-const desc = '時刻に関する聞き取りゲームをやりましょう'
+pTitle.value = '日付'
+const title = '日付 - 聞き取りゲーム'
+const desc = '日付に関する聞き取りゲームをやりましょう'
 const url = 'https://kikitori.boggy.tw'
 const image = 'https://kikitori.boggy.tw/images/share.jpg'
 useHead({

@@ -6,7 +6,7 @@
     <div v-if="gameStatus !== 'playing'">
       <template v-if="gameStatus === 'end'">
         <h2>
-          時刻 レベル{{ level }}の 練習結果
+          曜日 レベル{{ level }}の 練習結果
         </h2>
         <table>
           <thead>
@@ -24,9 +24,9 @@
               <td>
                 <a
                   href="#"
-                  @click.prevent="speak(q.question, 1)"
+                  @click.prevent="speak(q.fullQuestion, 1)"
                 >
-                  {{ q.question }}
+                  {{ q.fullQuestion }}
                 </a>
               </td>
               <td>
@@ -68,14 +68,13 @@
           注意すべきところ
         </h2>
         <ul class="notice-list">
-          <li>「1分」は「いっぷん」</li>
-          <li>「3分」は「さんぷん、さんふん」</li>
-          <li>「4分」は「よんぷん、よんふん」</li>
-          <li>「4時」は「よじ」</li>
-          <li>「6分」は「ろっぷん」</li>
-          <li>「7分」は「ななふん」</li>
-          <li>「8分」は「はっぷん、はちふん」</li>
-          <li>「10分」は「じゅっぷん」</li>
+          <li>「月曜日」は「げつようび」</li>
+          <li>「火曜日」は「かようび」</li>
+          <li>「水曜日」は「すいようび」</li>
+          <li>「木曜日」は「もくようび」</li>
+          <li>「金曜日」は「きんようび」</li>
+          <li>「土曜日」は「どようび」</li>
+          <li>「日曜日」は「にちようび」</li>
         </ul>
       </template>
 
@@ -156,6 +155,7 @@ const gameStatus = ref(null)
 const level = ref(1)
 const count = ref(1)
 // 題目
+const fullQuestion = ref(null)
 const question = ref(null)
 // 答案選擇項目
 const answers = ref([])
@@ -184,6 +184,7 @@ function setAns (ans) {
 function next () {
   if (answer.value) {
     questionHistory.value.push({
+      fullQuestion: fullQuestion.value,
       question: question.value,
       answer: answer.value
     })
@@ -194,47 +195,48 @@ function next () {
   } else {
     count.value++
 
-    const time = genTime()
+    const jikann = ['さきおととい', 'おととい', '昨日', '今日', '明日', 'あさって', 'しあさって']
+    const day = ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日']
 
-    question.value = time
+    const begin = Math.floor(Math.random() * 7)
+    const realBegin = begin - 3
+    let goal = begin
+
+    while(goal === begin) {
+      goal = Math.floor(Math.random() * 7)
+    }
+
+    const realGoal = goal - 3
+
+    // 組成：[今日(begin)]は[日曜日(beginDay)]です。では、[明日(goal)]は何曜日ですか？
+
+    const beginDay = Math.floor(Math.random() * 7)
+    const fullText = `${jikann[begin]}は${day[beginDay]}です。では、${jikann[goal]}は何曜日ですか？`
+    const goalDay = (beginDay + realGoal - realBegin + 14) % 7
+    // console.log(fullText, goalDay, day[goalDay])
+
+    fullQuestion.value = fullText
+    question.value = day[goalDay]
 
     const newAnswers = []
     newAnswers.push(question.value)
 
-    for (let i = 0; i < 3; i++) {
-      const data = time.split(/時|分/g).map(item => parseInt(item))
-      const changeHour = Math.random() > 0.7
-      const hours = changeHour ? randomBut(24, data[0]) : data[0]
-      const minutes = changeHour ? data[1] : randomBut(60, data[1])
-      newAnswers.push(hours + '時' + minutes + '分')
-    }
-
+    const days = day.filter(item => item !== day[goalDay])
+    days.sort(() => Math.random() - 0.5)
+    newAnswers.push(days[0])
+    newAnswers.push(days[1])
+    newAnswers.push(days[2])
     newAnswers.sort(() => Math.random() - 0.5)
+    console.log(days)
 
     answers.value = newAnswers
     answer.value = null
-    speak(question.value, level.value)
+    speak(fullQuestion.value, level.value)
   }
-}
-
-function randomBut (r, b) {
-  let num = b
-
-  while (num === b) {
-    num = Math.floor(Math.random() * r)
-  }
-
-  return num
 }
 
 function replay () {
-  speak(question.value, level.value)
-}
-
-function genTime () {
-  const hours = Math.floor(Math.random() * 24)
-  const minutes = Math.floor(Math.random() * 60)
-  return hours + '時' + minutes + '分'
+  speak(fullQuestion.value, level.value)
 }
 
 function speak (text, lv) {
@@ -269,9 +271,9 @@ function speak (text, lv) {
 }
 
 const pTitle = useState('pTitle')
-pTitle.value = '時刻'
-const title = '時刻 - 聞き取りゲーム'
-const desc = '時刻に関する聞き取りゲームをやりましょう'
+pTitle.value = '日付'
+const title = '日付 - 聞き取りゲーム'
+const desc = '日付に関する聞き取りゲームをやりましょう'
 const url = 'https://kikitori.boggy.tw'
 const image = 'https://kikitori.boggy.tw/images/share.jpg'
 useHead({
