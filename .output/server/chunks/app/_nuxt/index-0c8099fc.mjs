@@ -496,6 +496,36 @@ const _sfc_main = {
       _push(ssrRenderComponent(_component_NoJpVoiceFound, null, null, _parent));
       _push(`<h2> \u7DF4\u7FD2\u30C6\u30FC\u30DE </h2><nav class="main-menu">`);
       _push(ssrRenderComponent(_component_NuxtLink, {
+        to: "/hiduke",
+        class: "btn"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(` \u65E5\u4ED8 `);
+          } else {
+            return [
+              createTextVNode(" \u65E5\u4ED8 ")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(ssrRenderComponent(_component_NuxtLink, {
+        to: "/youbi",
+        class: "btn"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(` \u66DC\u65E5 `);
+          } else {
+            return [
+              createTextVNode(" \u66DC\u65E5 ")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(ssrRenderComponent(_component_NuxtLink, {
         to: "/jikoku",
         class: "btn"
       }, {
@@ -591,4 +621,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=index-79ef1ffb.mjs.map
+//# sourceMappingURL=index-0c8099fc.mjs.map
