@@ -1,174 +1,193 @@
 <template>
-  <div class="main _test _custom">
-    <FailToSupportSpeechApi />
-    <NoJpVoiceFound />
+  <NuxtLayout name="default">
+    <div class="main _test _custom">
+      <FailToSupportSpeechApi />
+      <NoJpVoiceFound />
 
-    <div v-if="gameStatus !== 'playing'">
-      <template v-if="gameStatus === 'end'">
-        <h2>
-          {{ title }} レベル{{ level }}の 練習結果
-        </h2>
-        <table>
-          <thead>
-            <tr>
-              <th>問題</th>
-              <th>答え</th>
-              <th>結果</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="(q, idx) in questionHistory"
-              :key="`question_history_${idx}`"
+      <div v-if="gameStatus !== 'playing'">
+        <template v-if="gameStatus === 'end'">
+          <h2>
+            {{ title }} レベル{{ level }}の 練習結果
+          </h2>
+          <table>
+            <thead>
+              <tr>
+                <th>問題</th>
+                <th>答え</th>
+                <th>結果</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="(q, idx) in questionHistory"
+                :key="`question_history_${idx}`"
+              >
+                <td>
+                  <a
+                    href="#"
+                    @click.prevent="speak(q.question, 1)"
+                  >
+                    {{ q.question }}
+                  </a>
+                </td>
+                <td>
+                  <a
+                    href="#"
+                    @click.prevent="speak(q.answer, 1)"
+                  >
+                    {{ q.answer }}
+                  </a>
+                </td>
+                <td>{{ q.question === q.answer ? '⭕️' : '❌' }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="result">
+            正解率
+            {{ rightPercent }}
+            %
+
+            <template v-if="rightPercent > 98">
+              素晴らしい！👍
+            </template>
+            <template v-else-if="rightPercent > 80">
+              上手になったね！
+            </template>
+            <template v-else-if="rightPercent > 70">
+              よくできたね！
+            </template>
+            <template v-else-if="rightPercent > 60">
+              だんだんできたね！
+            </template>
+            <template v-else>
+              もっと頑張ってね。
+            </template>
+          </div>
+        </template>
+        <template v-else>
+          <h2>
+            下記はこのテーマ「{{ title }}」に入れた単語
+          </h2>
+          <div class="voc-list">
+            <a
+              v-for="(item, idx) in questions"
+              :key="`custom_test_question_${idx}`"
+              href="#"
+              @click.prevent="speak(item, 1)"
             >
-              <td>
-                <a
-                  href="#"
-                  @click.prevent="speak(q.question, 1)"
-                >
-                  {{ q.question }}
-                </a>
-              </td>
-              <td>
-                <a
-                  href="#"
-                  @click.prevent="speak(q.answer, 1)"
-                >
-                  {{ q.answer }}
-                </a>
-              </td>
-              <td>{{ q.question === q.answer ? '⭕️' : '❌' }}</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="result">
-          正解率
-          {{ rightPercent }}
-          %
+              {{ item }}
+            </a>
+          </div>
+        </template>
 
-          <template v-if="rightPercent > 98">
-            素晴らしい！👍
-          </template>
-          <template v-else-if="rightPercent > 80">
-            上手になったね！
-          </template>
-          <template v-else-if="rightPercent > 70">
-            よくできたね！
-          </template>
-          <template v-else-if="rightPercent > 60">
-            だんだんできたね！
-          </template>
-          <template v-else>
-            もっと頑張ってね。
-          </template>
-        </div>
-      </template>
-      <template v-else>
-        <h2>
-          下記はこのテーマ「{{ title }}」に入れた単語
-        </h2>
-        <div class="voc-list">
-          <a
-            v-for="(item, idx) in questions"
-            :key="`custom_test_question_${idx}`"
-            href="#"
-            @click.prevent="speak(item, 1)"
+        <hr>
+
+        <div class="actions">
+          <h2>
+            <template v-if="gameStatus === null">
+              始めましょう！
+            </template>
+            <template v-else>
+              もう一度しましょう！
+            </template>
+          </h2>
+
+          <button
+            type="button"
+            @click="start(1)"
           >
-            {{ item }}
-          </a>
+            レベル一
+          </button>
+          <button
+            type="button"
+            @click="start(2)"
+          >
+            レベル二
+          </button>
+          <button
+            type="button"
+            @click="start(3)"
+          >
+            レベル三
+          </button>
         </div>
-      </template>
+      </div>
 
-      <hr>
+      <div v-else-if="gameStatus === 'playing'">
+        <div class="answers">
+          <h3 class="answer-head">
+            正しい答えを選んでください
+          </h3>
+          <button
+            v-for="(ans, idx) in answers"
+            :key="`ans_${idx}`"
+            type="button"
+            class="tertiary ans"
+            :class="{ outline: answer !== ans }"
+            @click="setAns(ans)"
+          >
+            {{ ans }}
+          </button>
+        </div>
 
-      <div class="actions">
-        <h2>
-          <template v-if="gameStatus === null">
-            始めましょう！
-          </template>
-          <template v-else>
-            もう一度しましょう！
-          </template>
-        </h2>
+        <hr>
 
-        <button
-          type="button"
-          @click="start(1)"
-        >
-          レベル一
-        </button>
-        <button
-          type="button"
-          @click="start(2)"
-        >
-          レベル二
-        </button>
-        <button
-          type="button"
-          @click="start(3)"
-        >
-          レベル三
-        </button>
+        <div class="actions">
+          <button
+            type="button"
+            class="secondary outline"
+            @click="replay()"
+          >
+            もう一度聞く
+          </button>
+          <button
+            type="button"
+            :disabled="!answer"
+            @click="next()"
+          >
+            次へ
+          </button>
+        </div>
+
+        <div class="google-ad">
+          <!-- eslint-disable -->
+          <component :is="'script'" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8209950884395919" crossorigin="anonymous"></component>
+          <!-- Kikitori 測驗頁廣告 -->
+          <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-8209950884395919"
+            data-ad-slot="8597565030"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+          <component :is="'script'">
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </component>
+          <!-- eslint-enable -->
+        </div>
       </div>
     </div>
-
-    <div v-else-if="gameStatus === 'playing'">
-      <div class="answers">
-        <h3 class="answer-head">
-          正しい答えを選んでください
-        </h3>
-        <button
-          v-for="(ans, idx) in answers"
-          :key="`ans_${idx}`"
-          type="button"
-          class="tertiary ans"
-          :class="{ outline: answer !== ans }"
-          @click="setAns(ans)"
-        >
-          {{ ans }}
-        </button>
-      </div>
-
-      <hr>
-
-      <div class="actions">
-        <button
-          type="button"
-          class="secondary outline"
-          @click="replay()"
-        >
-          もう一度聞く
-        </button>
-        <button
-          type="button"
-          :disabled="!answer"
-          @click="next()"
-        >
-          次へ
-        </button>
-      </div>
-
-      <div class="google-ad">
-        <!-- eslint-disable -->
-        <component :is="'script'" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8209950884395919" crossorigin="anonymous"></component>
-        <!-- Kikitori 測驗頁廣告 -->
-        <ins class="adsbygoogle"
-          style="display:block"
-          data-ad-client="ca-pub-8209950884395919"
-          data-ad-slot="8597565030"
-          data-ad-format="auto"
-          data-full-width-responsive="true"></ins>
-        <component :is="'script'">
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </component>
-        <!-- eslint-enable -->
-      </div>
-    </div>
-  </div>
+  </NuxtLayout>
 </template>
 
 <script setup>
 const route = useRoute()
+definePageMeta({
+  layout: false
+})
+
+const pTitle = useState('pTitle')
+pTitle.value = route.params.name
+const wTitle = route.params.name + ' - 聞き取りゲーム'
+const description = route.params.name + 'に関する聞き取りゲームをやりましょう'
+useSeoMeta({
+  title: wTitle,
+  description,
+  ogTitle: wTitle,
+  ogDescription: description,
+  twitterTitle: wTitle,
+  twitterDescription: description,
+})
+
 const router = useRouter()
 const gameStatus = ref(null)
 const level = ref(1)
@@ -301,30 +320,6 @@ function speak (text, lv) {
   speechSynthesis.cancel()
   speechSynthesis.speak(utterance)
 }
-
-const pTitle = useState('pTitle')
-pTitle.value = route.params.name
-const metaTitle = route.params.name + ' - 聞き取りゲーム'
-const desc = route.params.name + 'に関する聞き取りゲームをやりましょう'
-const url = 'https://kikitori.boggy.tw'
-const image = 'https://kikitori.boggy.tw/images/share.jpg'
-useHead({
-  title: metaTitle,
-  meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
-    { name: 'description', content: desc },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: title },
-    { name: 'twitter:description', desc },
-    { name: 'twitter:image', content: image },
-    { name: 'og:type', content: 'website' },
-    { name: 'og:title', content: title },
-    { name: 'og:description', content: desc },
-    { name: 'og:image', content: image },
-    { name: 'og:url', content: url },
-    { name: 'og:site_name', content: 'iDrip' }
-  ]
-})
 
 onMounted(() => {
   getSavedData()

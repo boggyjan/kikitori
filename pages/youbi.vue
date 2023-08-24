@@ -1,156 +1,175 @@
 <template>
-  <div class="main _test _jikan">
-    <FailToSupportSpeechApi />
-    <NoJpVoiceFound />
+  <NuxtLayout name="default">
+    <div class="main _test _jikan">
+      <FailToSupportSpeechApi />
+      <NoJpVoiceFound />
 
-    <div v-if="gameStatus !== 'playing'">
-      <template v-if="gameStatus === 'end'">
-        <h2>
-          曜日 レベル{{ level }}の 練習結果
-        </h2>
-        <table>
-          <thead>
-            <tr>
-              <th>問題</th>
-              <th>答え</th>
-              <th>結果</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="(q, idx) in questionHistory"
-              :key="`question_history_${idx}`"
-            >
-              <td>
-                <a
-                  href="#"
-                  @click.prevent="speak(q.fullQuestion, 1)"
-                >
-                  {{ q.fullQuestion }}
-                </a>
-              </td>
-              <td>
-                <a
-                  href="#"
-                  @click.prevent="speak(q.answer, 1)"
-                >
-                  {{ q.answer }}
-                </a>
-              </td>
-              <td>{{ q.question === q.answer ? '⭕️' : '❌' }}</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="result">
-          正解率
-          {{ rightPercent }}
-          %
+      <div v-if="gameStatus !== 'playing'">
+        <template v-if="gameStatus === 'end'">
+          <h2>
+            曜日 レベル{{ level }}の 練習結果
+          </h2>
+          <table>
+            <thead>
+              <tr>
+                <th>問題</th>
+                <th>答え</th>
+                <th>結果</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="(q, idx) in questionHistory"
+                :key="`question_history_${idx}`"
+              >
+                <td>
+                  <a
+                    href="#"
+                    @click.prevent="speak(q.fullQuestion, 1)"
+                  >
+                    {{ q.fullQuestion }}
+                  </a>
+                </td>
+                <td>
+                  <a
+                    href="#"
+                    @click.prevent="speak(q.answer, 1)"
+                  >
+                    {{ q.answer }}
+                  </a>
+                </td>
+                <td>{{ q.question === q.answer ? '⭕️' : '❌' }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="result">
+            正解率
+            {{ rightPercent }}
+            %
 
-          <template v-if="rightPercent > 98">
-            素晴らしい！👍
-          </template>
-          <template v-else-if="rightPercent > 80">
-            上手になったね！
-          </template>
-          <template v-else-if="rightPercent > 70">
-            よくできたね！
-          </template>
-          <template v-else-if="rightPercent > 60">
-            だんだんできたね！
-          </template>
-          <template v-else>
-            もっと頑張ってね。
-          </template>
+            <template v-if="rightPercent > 98">
+              素晴らしい！👍
+            </template>
+            <template v-else-if="rightPercent > 80">
+              上手になったね！
+            </template>
+            <template v-else-if="rightPercent > 70">
+              よくできたね！
+            </template>
+            <template v-else-if="rightPercent > 60">
+              だんだんできたね！
+            </template>
+            <template v-else>
+              もっと頑張ってね。
+            </template>
+          </div>
+        </template>
+        <template v-else>
+          <h2>
+            注意すべきところ
+          </h2>
+          <ul class="notice-list">
+            <li>「月曜日」は「げつようび」</li>
+            <li>「火曜日」は「かようび」</li>
+            <li>「水曜日」は「すいようび」</li>
+            <li>「木曜日」は「もくようび」</li>
+            <li>「金曜日」は「きんようび」</li>
+            <li>「土曜日」は「どようび」</li>
+            <li>「日曜日」は「にちようび」</li>
+          </ul>
+        </template>
+
+        <hr>
+
+        <div class="actions">
+          <h2>
+            <template v-if="gameStatus === null">
+              始めましょう！
+            </template>
+            <template v-else>
+              もう一度しましょう！
+            </template>
+          </h2>
+
+          <button
+            type="button"
+            @click="start(1)"
+          >
+            レベル一
+          </button>
+          <button
+            type="button"
+            @click="start(2)"
+          >
+            レベル二
+          </button>
+          <button
+            type="button"
+            @click="start(3)"
+          >
+            レベル三
+          </button>
         </div>
-      </template>
-      <template v-else>
-        <h2>
-          注意すべきところ
-        </h2>
-        <ul class="notice-list">
-          <li>「月曜日」は「げつようび」</li>
-          <li>「火曜日」は「かようび」</li>
-          <li>「水曜日」は「すいようび」</li>
-          <li>「木曜日」は「もくようび」</li>
-          <li>「金曜日」は「きんようび」</li>
-          <li>「土曜日」は「どようび」</li>
-          <li>「日曜日」は「にちようび」</li>
-        </ul>
-      </template>
+      </div>
 
-      <hr>
+      <div v-else-if="gameStatus === 'playing'">
+        <div class="answers">
+          <h3 class="answer-head">
+            正しい答えを選んでください
+          </h3>
+          <button
+            v-for="(ans, idx) in answers"
+            :key="`ans_${idx}`"
+            type="button"
+            class="tertiary ans"
+            :class="{ outline: answer !== ans }"
+            @click="setAns(ans)"
+          >
+            {{ ans }}
+          </button>
+        </div>
 
-      <div class="actions">
-        <h2>
-          <template v-if="gameStatus === null">
-            始めましょう！
-          </template>
-          <template v-else>
-            もう一度しましょう！
-          </template>
-        </h2>
+        <hr>
 
-        <button
-          type="button"
-          @click="start(1)"
-        >
-          レベル一
-        </button>
-        <button
-          type="button"
-          @click="start(2)"
-        >
-          レベル二
-        </button>
-        <button
-          type="button"
-          @click="start(3)"
-        >
-          レベル三
-        </button>
+        <div class="actions">
+          <button
+            type="button"
+            class="secondary outline"
+            @click="replay()"
+          >
+            もう一度聞く
+          </button>
+          <button
+            type="button"
+            :disabled="!answer"
+            @click="next()"
+          >
+            次へ
+          </button>
+        </div>
       </div>
     </div>
-
-    <div v-else-if="gameStatus === 'playing'">
-      <div class="answers">
-        <h3 class="answer-head">
-          正しい答えを選んでください
-        </h3>
-        <button
-          v-for="(ans, idx) in answers"
-          :key="`ans_${idx}`"
-          type="button"
-          class="tertiary ans"
-          :class="{ outline: answer !== ans }"
-          @click="setAns(ans)"
-        >
-          {{ ans }}
-        </button>
-      </div>
-
-      <hr>
-
-      <div class="actions">
-        <button
-          type="button"
-          class="secondary outline"
-          @click="replay()"
-        >
-          もう一度聞く
-        </button>
-        <button
-          type="button"
-          :disabled="!answer"
-          @click="next()"
-        >
-          次へ
-        </button>
-      </div>
-    </div>
-  </div>
+  </NuxtLayout>
 </template>
 
 <script setup>
+definePageMeta({
+  layout: false
+})
+
+const pTitle = useState('pTitle')
+pTitle.value = '曜日'
+const title = '曜日 - 聞き取りゲーム'
+const description = '曜日に関する聞き取りゲームをやりましょう'
+useSeoMeta({
+  title,
+  description,
+  ogTitle: title,
+  ogDescription: description,
+  twitterTitle: title,
+  twitterDescription: description,
+})
+
 const gameStatus = ref(null)
 const level = ref(1)
 const count = ref(1)
@@ -269,28 +288,4 @@ function speak (text, lv) {
   speechSynthesis.cancel()
   speechSynthesis.speak(utterance)
 }
-
-const pTitle = useState('pTitle')
-pTitle.value = '曜日'
-const title = '曜日 - 聞き取りゲーム'
-const desc = '曜日に関する聞き取りゲームをやりましょう'
-const url = 'https://kikitori.boggy.tw'
-const image = 'https://kikitori.boggy.tw/images/share.jpg'
-useHead({
-  title,
-  meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
-    { name: 'description', content: desc },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: title },
-    { name: 'twitter:description', desc },
-    { name: 'twitter:image', content: image },
-    { name: 'og:type', content: 'website' },
-    { name: 'og:title', content: title },
-    { name: 'og:description', content: desc },
-    { name: 'og:image', content: image },
-    { name: 'og:url', content: url },
-    { name: 'og:site_name', content: 'iDrip' }
-  ]
-})
 </script>
