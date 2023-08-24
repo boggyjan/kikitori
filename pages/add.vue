@@ -1,86 +1,105 @@
 <template>
-  <div class="main _add">
-    <h2>
-      新しい練習を作ろう！
-    </h2>
-    <div>
-      作成したデータはこのブラウザに保存されるので、自分しか見ることができません。
-    </div>
-    <hr>
-    <div class="grid">
-      <div class="list">
-        <h3>
-          保存したテーマ
-        </h3>
-        <div
-          v-if="!tests.length"
-          class="alert"
-        >
-          データがありません
-        </div>
-        <div
-          v-for="(test, idx) in tests"
-          :key="`test_${idx}`"
-          class="item"
-          :class="{ active: idx === selectedIdx }"
-          @click="setSelected(idx)"
-        >
-          {{ test.title }}
-          <button
-            type="button"
-            class="small outline secondary"
-            @click.stop="remove(idx)"
+  <NuxtLayout name="default">
+    <div class="main _add">
+      <h2>
+        新しい練習を作ろう！
+      </h2>
+      <div>
+        作成したデータはこのブラウザに保存されるので、自分しか見ることができません。
+      </div>
+      <hr>
+      <div class="grid">
+        <div class="list">
+          <h3>
+            保存したテーマ
+          </h3>
+          <div
+            v-if="!tests.length"
+            class="alert"
           >
-            削除
-          </button>
-        </div>
-        <hr>
-      </div>
-      <div
-        ref="content"
-        class="content"
-      >
-        <form @submit.prevent="save()">
-          <h3 v-if="selectedIdx !== null">
-            テーマ「{{ title }}」を編集
-          </h3>
-          <h3 v-else>
-            新しいテーマを編集
-          </h3>
-          <div class="item">
-            <label>テーマ</label>
-            <input
-              v-model="title"
-              required
-            >
+            データがありません
           </div>
-          <div class="item">
-            <label>単語（改行で単語を区切ってください）</label>
-            <textarea
-              v-model="questions"
-              required
-            />
-          </div>
-          <div class="actions">
+          <div
+            v-for="(test, idx) in tests"
+            :key="`test_${idx}`"
+            class="item"
+            :class="{ active: idx === selectedIdx }"
+            @click="setSelected(idx)"
+          >
+            {{ test.title }}
             <button
-              v-if="selectedIdx !== null"
               type="button"
-              class="outline secondary"
-              @click="addNew()"
+              class="small outline secondary"
+              @click.stop="remove(idx)"
             >
-              新しいのを作る
-            </button>
-            <button>
-              保存
+              削除
             </button>
           </div>
-        </form>
+          <hr>
+        </div>
+        <div
+          ref="content"
+          class="content"
+        >
+          <form @submit.prevent="save()">
+            <h3 v-if="selectedIdx !== null">
+              テーマ「{{ title }}」を編集
+            </h3>
+            <h3 v-else>
+              新しいテーマを編集
+            </h3>
+            <div class="item">
+              <label>テーマ</label>
+              <input
+                v-model="title"
+                required
+              >
+            </div>
+            <div class="item">
+              <label>単語（改行で単語を区切ってください）</label>
+              <textarea
+                v-model="questions"
+                required
+              />
+            </div>
+            <div class="actions">
+              <button
+                v-if="selectedIdx !== null"
+                type="button"
+                class="outline secondary"
+                @click="addNew()"
+              >
+                新しいのを作る
+              </button>
+              <button>
+                保存
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
+  </NuxtLayout>
 </template>
 
 <script setup>
+definePageMeta({
+  layout: false
+})
+
+const pTitle = useState('pTitle')
+pTitle.value = '新しい練習を作ろう！'
+const wTitle = '編集 - 聞き取りゲーム'
+const description = '自分のテーマを編集'
+useSeoMeta({
+  title: wTitle,
+  description,
+  ogTitle: wTitle,
+  ogDescription: description,
+  twitterTitle: wTitle,
+  twitterDescription: description,
+})
+
 const tests = ref([])
 const selectedIdx = ref(null)
 const title = ref(null)
@@ -161,30 +180,6 @@ function remove (idx) {
     setSavedData()
   }
 }
-
-const pTitle = useState('pTitle')
-pTitle.value = '新しい練習を作ろう！'
-const metaTitle = '編集 - 聞き取りゲーム'
-const desc = '自分のテーマを編集'
-const url = 'https://kikitori.boggy.tw'
-const image = 'https://kikitori.boggy.tw/images/share.jpg'
-useHead({
-  title: metaTitle,
-  meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
-    { name: 'description', content: desc },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: title },
-    { name: 'twitter:description', desc },
-    { name: 'twitter:image', content: image },
-    { name: 'og:type', content: 'website' },
-    { name: 'og:title', content: title },
-    { name: 'og:description', content: desc },
-    { name: 'og:image', content: image },
-    { name: 'og:url', content: url },
-    { name: 'og:site_name', content: 'iDrip' }
-  ]
-})
 
 onMounted(() => {
   getSavedData()

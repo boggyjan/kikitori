@@ -28,6 +28,17 @@
 const lsName = 'saved_tests'
 const failToSupportSpeechApi = useState('failToSupportSpeechApi')
 
+const shareImage = 'https://kikitori.boggy.tw/images/share.jpg'
+useSeoMeta({
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
+  ogImage: shareImage,
+  ogType: 'website',
+  twitterCard: 'summary_large_image',
+  twitterImage: shareImage,
+  ogUrl: 'https://kikitori.boggy.tw' ,
+  ogSite_name: '聞き取りゲーム'
+})
+
 onMounted(() => {
   if (!window.SpeechSynthesisUtterance || !window.speechSynthesis) {
     failToSupportSpeechApi.value = true
