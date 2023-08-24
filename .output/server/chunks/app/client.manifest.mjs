@@ -1,16 +1,24 @@
 const client_manifest = {
-  "_NoJpVoiceFound.3c9eabc1.js": {
+  "_NoJpVoiceFound.35dcbf5e.js": {
     "resourceType": "script",
     "module": true,
-    "file": "NoJpVoiceFound.3c9eabc1.js",
+    "file": "NoJpVoiceFound.35dcbf5e.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
   },
-  "_nuxt-link.547fd44c.js": {
+  "_index.66c1c13c.js": {
     "resourceType": "script",
     "module": true,
-    "file": "nuxt-link.547fd44c.js",
+    "file": "index.66c1c13c.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.js"
+    ]
+  },
+  "_nuxt-link.bb6fc1f6.js": {
+    "resourceType": "script",
+    "module": true,
+    "file": "nuxt-link.bb6fc1f6.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
@@ -24,10 +32,11 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "default.d86cc605.js",
+    "file": "default.9164c9e1.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_nuxt-link.547fd44c.js"
+      "_nuxt-link.bb6fc1f6.js",
+      "_index.66c1c13c.js"
     ],
     "isDynamicEntry": true,
     "src": "layouts/default.vue"
@@ -45,9 +54,9 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "error-404.26918d25.js",
+    "file": "error-404.9daeae9f.js",
     "imports": [
-      "_nuxt-link.547fd44c.js",
+      "_nuxt-link.bb6fc1f6.js",
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "isDynamicEntry": true,
@@ -66,7 +75,7 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "error-500.7a17d128.js",
+    "file": "error-500.5363ff62.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -85,17 +94,18 @@ const client_manifest = {
       "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
       "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue"
     ],
-    "file": "entry.4e43c495.js",
+    "file": "entry.11ebbf07.js",
     "isEntry": true,
     "src": "node_modules/nuxt/dist/app/entry.js"
   },
   "pages/[name].vue": {
     "resourceType": "script",
     "module": true,
-    "file": "_name_.778c261e.js",
+    "file": "_name_.b5237bba.js",
     "imports": [
-      "_NoJpVoiceFound.3c9eabc1.js",
-      "node_modules/nuxt/dist/app/entry.js"
+      "_NoJpVoiceFound.35dcbf5e.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_index.66c1c13c.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/[name].vue"
@@ -109,9 +119,10 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "add.c87d9b31.js",
+    "file": "add.4f4dcf5a.js",
     "imports": [
-      "node_modules/nuxt/dist/app/entry.js"
+      "node_modules/nuxt/dist/app/entry.js",
+      "_index.66c1c13c.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/add.vue"
@@ -123,10 +134,11 @@ const client_manifest = {
   "pages/hiduke.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "hiduke.556b8624.js",
+    "file": "hiduke.2f76f55d.js",
     "imports": [
-      "_NoJpVoiceFound.3c9eabc1.js",
-      "node_modules/nuxt/dist/app/entry.js"
+      "_NoJpVoiceFound.35dcbf5e.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_index.66c1c13c.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/hiduke.vue"
@@ -140,11 +152,12 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "index.c5fcc1a1.js",
+    "file": "index.88390427.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_NoJpVoiceFound.3c9eabc1.js",
-      "_nuxt-link.547fd44c.js"
+      "_NoJpVoiceFound.35dcbf5e.js",
+      "_nuxt-link.bb6fc1f6.js",
+      "_index.66c1c13c.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/index.vue"
@@ -156,10 +169,11 @@ const client_manifest = {
   "pages/jikoku.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "jikoku.b00613fd.js",
+    "file": "jikoku.61de278d.js",
     "imports": [
-      "_NoJpVoiceFound.3c9eabc1.js",
-      "node_modules/nuxt/dist/app/entry.js"
+      "_NoJpVoiceFound.35dcbf5e.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_index.66c1c13c.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/jikoku.vue"
@@ -167,10 +181,11 @@ const client_manifest = {
   "pages/suuji.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "suuji.9000781d.js",
+    "file": "suuji.45ce2eeb.js",
     "imports": [
-      "_NoJpVoiceFound.3c9eabc1.js",
-      "node_modules/nuxt/dist/app/entry.js"
+      "_NoJpVoiceFound.35dcbf5e.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_index.66c1c13c.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/suuji.vue"
@@ -178,10 +193,11 @@ const client_manifest = {
   "pages/youbi.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "youbi.5add5456.js",
+    "file": "youbi.9bbb0a27.js",
     "imports": [
-      "_NoJpVoiceFound.3c9eabc1.js",
-      "node_modules/nuxt/dist/app/entry.js"
+      "_NoJpVoiceFound.35dcbf5e.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_index.66c1c13c.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/youbi.vue"

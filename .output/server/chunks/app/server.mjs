@@ -1,8 +1,8 @@
-import { toRef, isRef, hasInjectionContext, inject, version, getCurrentInstance, ref, watchEffect, watch, useSSRContext, createApp, reactive, unref, provide, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, shallowRef, shallowReactive, isReadonly, defineAsyncComponent, isShallow, isReactive, toRaw, withCtx, mergeProps, nextTick, defineComponent, computed, h, Suspense, Transition } from 'vue';
+import { toRef, isRef, hasInjectionContext, inject, unref, version, defineComponent, computed, ref, getCurrentInstance, watchEffect, watch, h, Suspense, nextTick, mergeProps, Transition, provide, useSSRContext, createApp, reactive, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, shallowRef, shallowReactive, isReadonly, defineAsyncComponent, isShallow, isReactive, toRaw, withCtx } from 'vue';
 import { $fetch } from 'ofetch';
 import { createHooks } from 'hookable';
 import { getContext, executeAsync } from 'unctx';
-import { createMemoryHistory, createRouter, START_LOCATION, useRoute as useRoute$1, RouterView } from 'vue-router';
+import { useRoute as useRoute$1, createMemoryHistory, createRouter, START_LOCATION, RouterView } from 'vue-router';
 import { createError as createError$1, sanitizeStatusCode } from 'h3';
 import { withQuery, hasProtocol, parseURL, joinURL } from 'ufo';
 import { renderSSRHead } from '@unhead/ssr';
@@ -313,30 +313,48 @@ const createError = (err) => {
   _err.__nuxt_error = true;
   return _err;
 };
+const __nuxt_page_meta$5 = {
+  layout: false
+};
+const __nuxt_page_meta$4 = {
+  layout: false
+};
+const __nuxt_page_meta$3 = {
+  layout: false
+};
+const __nuxt_page_meta$2 = {
+  layout: false
+};
+const __nuxt_page_meta$1 = {
+  layout: false
+};
+const __nuxt_page_meta = {
+  layout: false
+};
 const _routes = [
   {
-    name: "name",
-    path: "/:name()",
-    meta: {},
-    alias: [],
-    redirect: void 0,
-    component: () => import('./_nuxt/_name_-3c652e99.mjs').then((m) => m.default || m)
+    name: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.name) ?? "name",
+    path: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.path) ?? "/:name()",
+    meta: __nuxt_page_meta$5 || {},
+    alias: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.alias) || [],
+    redirect: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.redirect) || void 0,
+    component: () => import('./_nuxt/_name_-4718b6af.mjs').then((m) => m.default || m)
   },
   {
-    name: "add",
-    path: "/add",
-    meta: {},
-    alias: [],
-    redirect: void 0,
-    component: () => import('./_nuxt/add-b484a9be.mjs').then((m) => m.default || m)
+    name: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.name) ?? "add",
+    path: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.path) ?? "/add",
+    meta: __nuxt_page_meta$4 || {},
+    alias: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.alias) || [],
+    redirect: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.redirect) || void 0,
+    component: () => import('./_nuxt/add-50383dca.mjs').then((m) => m.default || m)
   },
   {
-    name: "hiduke",
-    path: "/hiduke",
-    meta: {},
-    alias: [],
-    redirect: void 0,
-    component: () => import('./_nuxt/hiduke-d94bf06a.mjs').then((m) => m.default || m)
+    name: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.name) ?? "hiduke",
+    path: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.path) ?? "/hiduke",
+    meta: __nuxt_page_meta$3 || {},
+    alias: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.alias) || [],
+    redirect: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.redirect) || void 0,
+    component: () => import('./_nuxt/hiduke-1dbd1171.mjs').then((m) => m.default || m)
   },
   {
     name: "index",
@@ -344,31 +362,31 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-0c8099fc.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-431a4998.mjs').then((m) => m.default || m)
   },
   {
-    name: "jikoku",
-    path: "/jikoku",
-    meta: {},
-    alias: [],
-    redirect: void 0,
-    component: () => import('./_nuxt/jikoku-e71423b4.mjs').then((m) => m.default || m)
+    name: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.name) ?? "jikoku",
+    path: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.path) ?? "/jikoku",
+    meta: __nuxt_page_meta$2 || {},
+    alias: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.alias) || [],
+    redirect: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.redirect) || void 0,
+    component: () => import('./_nuxt/jikoku-60aa0ed1.mjs').then((m) => m.default || m)
   },
   {
-    name: "suuji",
-    path: "/suuji",
-    meta: {},
-    alias: [],
-    redirect: void 0,
-    component: () => import('./_nuxt/suuji-e4696c96.mjs').then((m) => m.default || m)
+    name: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.name) ?? "suuji",
+    path: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.path) ?? "/suuji",
+    meta: __nuxt_page_meta$1 || {},
+    alias: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.alias) || [],
+    redirect: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.redirect) || void 0,
+    component: () => import('./_nuxt/suuji-bf69dc91.mjs').then((m) => m.default || m)
   },
   {
-    name: "youbi",
-    path: "/youbi",
-    meta: {},
-    alias: [],
-    redirect: void 0,
-    component: () => import('./_nuxt/youbi-1901df6c.mjs').then((m) => m.default || m)
+    name: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.name) ?? "youbi",
+    path: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.path) ?? "/youbi",
+    meta: __nuxt_page_meta || {},
+    alias: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.alias) || [],
+    redirect: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.redirect) || void 0,
+    component: () => import('./_nuxt/youbi-3b15f0ce.mjs').then((m) => m.default || m)
   }
 ];
 const appHead = { "meta": [{ "name": "viewport", "content": "width=device-width, initial-scale=1" }, { "charset": "utf-8" }], "link": [], "style": [], "script": [], "noscript": [] };
@@ -748,7 +766,7 @@ const _wrapIf = (component, props, slots) => {
   } };
 };
 const layouts = {
-  default: () => import('./_nuxt/default-901ddfa2.mjs').then((m) => m.default || m)
+  default: () => import('./_nuxt/default-654c9811.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = /* @__PURE__ */ defineComponent({
   name: "LayoutLoader",
@@ -1027,8 +1045,8 @@ const _sfc_main$1 = {
     const statusMessage = _error.statusMessage ?? (is404 ? "Page Not Found" : "Internal Server Error");
     const description = _error.message || _error.toString();
     const stack = void 0;
-    const _Error404 = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/error-404-3982068d.mjs').then((r) => r.default || r));
-    const _Error = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/error-500-437ea4bc.mjs').then((r) => r.default || r));
+    const _Error404 = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/error-404-5cbcb058.mjs').then((r) => r.default || r));
+    const _Error = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/error-500-67fcca32.mjs').then((r) => r.default || r));
     const ErrorTemplate = is404 ? _Error404 : _Error;
     return (_ctx, _push, _parent, _attrs) => {
       _push(ssrRenderComponent(unref(ErrorTemplate), mergeProps({ statusCode: unref(statusCode), statusMessage: unref(statusMessage), description: unref(description), stack: unref(stack) }, _attrs), null, _parent));
@@ -1113,5 +1131,5 @@ let entry;
 }
 const entry$1 = (ctx) => entry(ctx);
 
-export { _export_sfc as _, useRoute as a, useRouter as b, createError as c, useState as d, entry$1 as default, navigateTo as n, useHead as u };
+export { _export_sfc as _, useRoute as a, useState as b, createError as c, useRouter as d, entry$1 as default, __nuxt_component_0 as e, navigateTo as n, resolveUnrefHeadInput as r, useHead as u };
 //# sourceMappingURL=server.mjs.map
